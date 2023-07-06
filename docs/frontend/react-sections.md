@@ -19,47 +19,17 @@ description: React Sections
 #### useCallBack
 #### useMemo
 
----
-
-### Phase03
-#### react router
+### Phase03 
+#### axios & fetch
+#### json server
 
 ---
 ### Phase04
-#### context Api global state
+#### react router
+#### Helmet
 
 ---
-### Phase05
-
-#### redux & redux toolKit
-
---- 
-
-### Phase06
-
-#### unit Testing
-#### deployment
-
----
-### Phase07
-
-#### dockerized
-
---- 
-### Phase08
-#### project
-
----
-### extra learn
-#### semantic version & npm packages version ~ ^ & package-lock.json
-#### async / await 
-#### axios / fetch
-#### method binding
-#### service worker
-#### socket.io
-
-
-### design patterns
+### Phase05 : design patterns
 #### method factory
 #### abstract factory
 #### singleton
@@ -68,6 +38,36 @@ description: React Sections
 #### Proxy
 #### strategy
 
+---
+### Phase06
+#### context Api global state
+#### redux & redux toolKit
+
+---
+### Phase07
+#### unit Testing
+#### deployment
+
+---
+### Phase08
+#### docker
+#### docker compose
+
+--- 
+### Phase09
+#### project
+
+---
+### extra learn
+#### semantic version & npm packages version ~ ^ & package-lock.json
+#### async / await
+#### method binding
+#### service worker
+#### socket.io
+
+
+
+---
 ### presentation ( knowledge sharing with others)
 #### subjects:
 
