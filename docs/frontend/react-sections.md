@@ -57,3 +57,14 @@ description: React Sections
 #### method binding
 #### service worker
 #### socket.io
+
+
+### design patterns
+#### method factory
+#### abstract factory
+#### singleton
+#### facade
+#### Observer
+#### Proxy
+#### strategy
+
