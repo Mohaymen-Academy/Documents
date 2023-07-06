@@ -48,3 +48,10 @@ description: React Sections
 --- 
 ### Phase08
 #### project
+
+---
+### extra learn
+#### semantic version & npm packages version ~ ^ & package-lock.json
+#### async / await 
+#### axios / fetch
+#### method binding
