@@ -72,9 +72,9 @@ description: React Sections
 #### subjects:
 
 1. what's semantic version ?
-2. explain Facade Design Pattern 
+2. what's Facade Design Pattern 
 3. what's TDD ?
-4. explain Tailwindcss ?
+4. what's Tailwindcss ?
 5. what's Docker and Orchestrators?
 6. what's Service Worker in Browsers ?
 7. what's websocket and how works ?
