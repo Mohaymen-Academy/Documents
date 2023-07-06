@@ -18,5 +18,7 @@ description: React Sections
 ### react router
 ### context Api global state
 ### redux & redux toolKit
-
+### unit Testing
+### deployment
+### dockerized
 
