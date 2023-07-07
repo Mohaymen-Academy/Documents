@@ -6,7 +6,7 @@ description: React Sections
 ### Phase 01
 #### installations
 #### create first App with 1 functional component
-#### whats props in component
+#### what's props in component
 #### layout
 
 ---
@@ -60,7 +60,6 @@ description: React Sections
 ---
 ### extra learn
 #### semantic version & npm packages version ~ ^ & package-lock.json
-#### async / await
 #### method binding
 #### service worker
 #### socket.io

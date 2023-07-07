@@ -342,6 +342,151 @@ export {Square};
 -   [MDN - import](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/import/)
 
 ---
+#### Async & Await
+Async / Await روش تقریبا جدیدی برای نوشتن کد ناهمگام در JavaScript است. قبل‌ها ما از callbackها و promiseها استفاده می‌کردیم. Async / Await در واقع بر پایه promiseها ساخته شده است
+
+چرا async / await؟ به زبان ساده، async / await شما را قادر می‌سازد تا کد ناهمگامی را به شیوه همگام بنویسید.
+
+##### توابع Async
+
+برای ساخت یک تابع async، تنها کاری که باید انجام دهیم، این است که کلمه کلیدی  asyncرا قبل از تعریف تابع قرار دهیم. به مانند این کد:
+
+```javascript
+async function asyncFunc() {
+  return "Hey!";
+}
+```
+نکته‌ای که درباره توابع async باید بدانید، این است که آن‌ها همیشه یک promise را بر می‌گردانند.
+
+در مواقعی مانند مورد بالا که ما چیزی را بر می‌گردانیم که یک promise نیست، مقدار برگشتی به طور خودکار در یک promise جمع‌بندی می‌شود، که در آن مقدار resolve شده، یک مقدار غیر promise است. برای کد بالا، asyncFunc.then(result = console.log(result)) رشته «Hey!» را بر خواهد گرداند.
+
+##### Await
+
+کلمه کلیدی await فقط می‌تواند در یک بلوک async استفاده شود، در غیر این صورت یک خطای سینتکس را بروز خواهد داد. این به این معنی است که شما نمی‌توانید از await در بالاترین سطح کد خود استفاده کنید. به عبارتی، از آن به وسیله خودش استفاده نکنید.
+
+چه زمانی از آن استفاده کنیم؟ اگر یک تابع ناهمگام داخل یک بلوک async دارید، از آن استفاده کنید. پس فرض کنید که باید برخی داده‌ها را از سرور خود بگیریم و سپس از آن داده‌ها داخل بلوک async‌ خود استفاده کنیم. ما از await برای متوقف کردن اجرای تابع استفاده می‌کنیم، و پس از این که داده‌ها وارد می‌شود آن را ادامه می‌دهیم. برای مثال:
+
+```javascript
+async function asyncFunc() {
+ 
+  // دریافت داده‌ها از یک اندپوینت
+ 
+  const data = await axios.get("/some_url_endpoint");
+ 
+  return data;
+ 
+}
+```
+
+چرا از await استفاده کنیم؟ به جای استفاده از await می‌توانستیم به راحتی از یک promise استفاده کنیم، نه؟
+
+
+```javascript
+async function asyncFunc() {
+ 
+  let data;
+ 
+  // دریافت داده‌ها از یک اندپوینت
+ 
+  axios.get("/some_url_endpoint")
+ 
+    .then((result) => {
+ 
+      data = result
+ 
+    });
+ 
+  return data;
+ 
+}
+```
+
+Await یک راه زیباتری برای نوشتن یک promise داخل یک تابع async است. Await خوانایی کد را به طور فوق العاده‌ای افزایش می‌دهد و از این رو ما از آن استفاده می‌کنیم.
+
+بیایید فرض کنیم که ما چند تابع ناهمگام داخل بلوک async خود داریم. به جای زنجیر کردن promiseها، می‌توانیم این کار را انجام دهیم که راه بسیار مناسب‌تری است:
+
+```javascript
+async function asyncFunc() {
+ 
+  // دریافت داده‌ها از یک اندپوینت
+ 
+  const response = await axios.get("/some_url_endpoint");
+ 
+  const data = await response.json();
+ 
+  return data;
+ 
+}
+```
+
+##### Try…catch
+همان try-catch قدیمی، رایج‌ترین راه برای مدیریت خطاها در هنگام استفاده از async / await است. تنها کاری که باید انجام دهید، کپسول کردن کد خود در یک بلوک try و مدیریت خطاهایی که در catch بروز می‌دهند است.
+
+```javascript
+async function asyncFunc() {
+ 
+  try {
+ 
+    // دریافت داده‌ها از یک اندپوینت
+ 
+    const data = await axios.get("/some_url_endpoint");
+ 
+    return data;
+ 
+  } catch(error) {
+ 
+    console.log("error", error);
+ 
+    // روش مناسب برای مدیریت خطا
+ 
+  }
+ 
+}
+```
+اگر در هنگام دریافت داده‌ها از endpoint خطایی بروز داده شود، روند اجرایی به بلوک catch منتقل می‌شود و می‌توانیم هر خطایی که بروز داده شده است را مدیریت کنیم. اگر چندین خط await داریم، بلوک catch خطاهایی که در تمام خط‌ها بروز داده‌اند را دریافت می‌کند.
+
+##### اگر try…catch نه...
+
+یک روش جایگزین این است که .catch() را که به promiseای که توسط تابع async تولید شده است، متصل کنیم. به یاد داشته باشید که تابع async یک promise را بر می‌گرداند. اگر خطایی بروز دهد، این تابع یک promise رد شده را بر می‌گرداند. پس در بخش فراخوانی تابع، این کار را انجام می‌دهیم:
+
+```javascript
+asyncFunc()
+    .then((data) => {})
+    .catch((error) => {
+ 
+  // روش مناسب برای مدیریت خطا
+ 
+});
+```
+
+##### Await <> Promise.all
+اگر چندین promise داریم، می‌توانیم از Promise.all به همراه await استفاده کنیم.
+
+
+```javascript
+async function asyncFunc() {
+ 
+  const response = await Promise.all([
+ 
+    axios.get("/some_url_endpoint"),
+ 
+    axios.get("/some_url_endpoint")
+ 
+  ]);
+}
+```
+##### نتیجه گیری
+به طور خلاصه، async / await یک سینتکس مرتب‌تری برای نوشتن کد JavaScript ناهمگام است. این نوع توابع، خوانایی و جریان کد شما را ارتقا می‌دهند.
+
+در هنگام استفاده از async / await، این موارد را به یاد داشته باشید:
+
+- توابع async یک promise را بر می‌گردانند.
+- Await فقط می‌تواند داخل یک بلوک async استفاده شود.
+- Await تا زمانی که تابع resolve شده یا رد شود، منتظر می‌ماند.
+
+
+
+---
 
 ### Node.js & nvm & npm
 
