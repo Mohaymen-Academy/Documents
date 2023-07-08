@@ -8,7 +8,7 @@ description: react lifecycle & useEffect hook
 هر کامپوننت در ریکت یک چرخه ی حیات دارد که از لحظه ایجاد تا لحظه تخریب مداوم ان را طی میکند.
 به تصویر زیر دفت کنید:
 
-![چرخه حیاط کاموننت](./images/react-lifecycle.png)
+![چرخه حیاط کاموننت](../images/react-lifecycle.png)
 
 مراحل زیر به ترتیب برای هر کامپوننتی اجرا میشود
 - Initialization: 
@@ -23,7 +23,7 @@ description: react lifecycle & useEffect hook
 
 میتوانیم نگاهی عمیق تر به چرخه حیاط کامپوننت ها بیندازیم 
 
-![](./images/react-lifecycle-deep.webp)
+![](../images/react-lifecycle-deep.webp)
 
 
 در تصویر بالا مشاهده میکنید که سه متد مهم داریم 

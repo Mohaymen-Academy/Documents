@@ -8,7 +8,7 @@ description: Starting with React
 
 ریکت یک کتابخانه سمت فرانت است که در واقع یک ابزار ساخت ui واکنشپذیر هست و توسط تیم توسعه فیسبوک ساخته شده
 
-![](./images/react-starter.png)
+![](../images/react-starter.png)
 
 
 ## ریکت چطور کار میکنه ؟ 
@@ -29,7 +29,7 @@ description: Starting with React
 برای ساخت اولین پروژه ریکت بعد از نصب nodejs روی سیستم میتونیم دستورات زیر را اجرا کنیم تا پروژه ی ریکتیمون ایجاد بشه
 
 ```bash
-npx create-react-app myApp
+npx create-07-react-app myApp
 ```
 
 حالا نوبت به اجرای برنامه ریکتی که ساختیم میشه برای اجراش دستور زیر را میزنیم
@@ -103,7 +103,7 @@ export default App;
 
 ```javascript
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from '07-react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';

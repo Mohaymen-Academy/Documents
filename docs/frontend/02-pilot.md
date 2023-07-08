@@ -59,7 +59,7 @@ React
  Node >= 14.0.0 and npm >= 5.6 
 ```
 ```shell
-npx create-react-app my-app
+npx create-07-react-app my-app
 cd my-app
 npm start
 ```
