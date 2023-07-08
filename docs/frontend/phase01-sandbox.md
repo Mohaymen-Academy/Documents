@@ -358,7 +358,13 @@ async function asyncFunc() {
 ```
 نکته‌ای که درباره توابع async باید بدانید، این است که آن‌ها همیشه یک promise را بر می‌گردانند.
 
-در مواقعی مانند مورد بالا که ما چیزی را بر می‌گردانیم که یک promise نیست، مقدار برگشتی به طور خودکار در یک promise جمع‌بندی می‌شود، که در آن مقدار resolve شده، یک مقدار غیر promise است. برای کد بالا، asyncFunc.then(result = console.log(result)) رشته «Hey!» را بر خواهد گرداند.
+در مواقعی مانند مورد بالا که ما چیزی را بر می‌گردانیم که یک promise نیست، مقدار برگشتی به طور خودکار در یک promise جمع‌بندی می‌شود، که در آن مقدار resolve شده، یک مقدار غیر promise است. برای کد بالا، 
+
+```javascript
+ asyncFunc.then(result = console.log(result))
+```
+
+رشته «Hey!» را بر خواهد گرداند.
 
 ##### Await
 
@@ -459,7 +465,7 @@ asyncFunc()
 });
 ```
 
-##### Await <> Promise.all
+##### Await Promise.all
 اگر چندین promise داریم، می‌توانیم از Promise.all به همراه await استفاده کنیم.
 
 
