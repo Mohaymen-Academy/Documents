@@ -40,6 +40,72 @@ description: react lifecycle & useEffect hook
 
 ## useEffect 
 هوک useEffect تمامی موارد چرخه حیاط را به ما میدهد 
- به نمونه زیر را دقت کنید
+ به نمونه زیر را دقت کنید:
+
+```javascript
+/**
+* const [state, setState] = useState(init)
+*
+* {state}
+* setState(new value)
+*
+* useEffect(callback function, dependencies)
+* useEffect(() => {
+*     mounting and after updating each dependencies
+*     return () => {
+*       unmounting and before updateing each dependencies
+*     }
+*   }, [states or props])
+*/
+
+useEffect(() => {
+    //step 1
+    console.log("mounting and after updating each dependencies");
+    
+    return () => {
+        //step 2
+        console.log("unmounting and before updating each dependencies");
+    };
+}, []);
+```
 
 
+زمانی که کامپوننت شروع به mount شدن میشود step1 اجرا میشود و زمانی که unmount میشود step2 اجرا میشود.
+
+همچنین زمانیکه هر کدام از state ها یا prop ها تغییری پیدا کند مجدد رندر انجام شده و قبل از بروزرسانی prop | state ها step2 اجرا میشود و بعد از بروزرسانی state | prop ها step 1 اجرا میشود.
+
+پس در واقع ما میتوانیم تمام lifecycle یک کامپوننت را با useEffect مدیریت کنیم.
+
+:::caution نکته
+معمولا ارسال درخواست داده به سرور در این هوک انجام میشود.
+:::
+
+حالا اگر به یک useEffect وابستگی داده شود چه اتفاقی رخ خواهد داد؟
+
+```javascript
+const [counter, setCounter]= useState(0);
+
+useEffect(() => {
+    //step 1
+    console.log("mounting and after updating each dependencies");
+    
+    return () => {
+        //step 2
+        console.log("unmounting and before updating each dependencies");
+    };
+}, [counter]);
+```
+
+هوک بالا زمانی اجرا خواهد شد که counter تغییر کند.
+
+برای دسترسی به didMount , willUnmount میتوان از روش زیر اقدام کرد و هوک را بدون وابستگی نوشت
+
+```javascript
+useEffect(() => {
+    console.log("mounting");
+    
+    return () => {
+        console.log("unmounting");
+    };
+}, []);
+```
