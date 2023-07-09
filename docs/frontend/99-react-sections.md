@@ -16,6 +16,7 @@ description: React Sections
 #### How dependency detect changes of variable ( memory story )
 #### useRef
 #### useState
+#### useReducer
 #### useCallBack
 #### useMemo
 
@@ -31,12 +32,10 @@ description: React Sections
 ---
 ### Phase05 : design patterns
 #### method factory
-#### abstract factory
-#### singleton
 #### facade
 #### Observer
 #### Proxy
-#### strategy
+
 
 ---
 ### Phase06
@@ -72,4 +71,8 @@ description: React Sections
 #### hands dirty with react & components & props
 #### tailwindcss with react
 #### react events & forms
+#### react hooks 1
+#### react hooks 2
+#### react router
+#### react redux
 
