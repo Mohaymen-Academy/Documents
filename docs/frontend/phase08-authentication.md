@@ -34,7 +34,7 @@ description: Well, we haven't exactly met, we just stayed up all night talking o
 استفاده می‌کنیم:
 
 ```javascript
-document.cookies = 'username=codestar; password=1234; expires=Wed, 25 Aug 2021 21:08:53 GMT; path=/link.html';
+document.cookies = 'username=mohaymen; password=1234; expires=Wed, 25 Aug 2021 21:08:53 GMT; path=/link.html';
 ```
 
 مقدار `expires` مشخص می‌کند که کوکی‌ها در چه زمانی منقضی شوند.

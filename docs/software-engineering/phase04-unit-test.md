@@ -82,7 +82,7 @@ Visual Studio
 ## نوشتن تست برای ماشین حساب ساده
 
 در این مرحله، با استفاده از دانشی که در این فاز به دست آورده‌اید، برای قسمت business
-پروژه [ماشین حساب ساده](https://github.com/Star-Academy/SimpleCalculator)
+پروژه [ماشین حساب ساده](https://github.com/Mohaymen-Academy/SimpleCalculator)
 تست بنویسید.
 سعی کنید code coverage
 تست های خود را به 100% نزدیک کنید.

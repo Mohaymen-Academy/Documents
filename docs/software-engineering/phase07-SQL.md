@@ -112,7 +112,7 @@ CREATE DATABASE database_name;
 برای مثال:
 
 ```sql
-CREATE DATABASE StarAcademy;
+CREATE DATABASE MohaymenAcademy;
 ```
 
 با اجرای این دستور، دیتابیس ساخته می‌شود و با
@@ -120,7 +120,7 @@ Refresh
 کردن
 Databases
 دیتابیس
-StarAcademy
+MohaymenAcademy
 مشاهده می‌شود.
 
 پس از اجرا کردن هر دستور،

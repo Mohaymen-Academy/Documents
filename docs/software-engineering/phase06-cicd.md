@@ -173,7 +173,7 @@ description: ''
 
     با اکانت GitHub
     خود در سایت [codecov.io](https://codecov.io)
-    وارد شوید. سپس به آدرس `https://codecov.io/gh/Star-Academy/<your-repository-name>`
+    وارد شوید. سپس به آدرس `https://codecov.io/gh/Mohaymen-Academy/<your-repository-name>`
     بروید.
 
     1. بخش زیر را به فایل `buildPipeline.yml`
@@ -188,7 +188,7 @@ description: ''
               fail_ci_if_error: true
         ```
 
-    1. یک‌بار دیگر صفحهٔ `https://codecov.io/gh/Star-Academy/<your-repository-name>`
+    1. یک‌بار دیگر صفحهٔ `https://codecov.io/gh/Mohaymen-Academy/<your-repository-name>`
     را باز کنید
     وارد بخش Setting
     شده و از سمت چپ، گزینه‌ی Badge
@@ -261,9 +261,9 @@ jobs:
 
   <PropertyGroup>
       <TargetFramework>net6.0</TargetFramework>
-      <PackageId>StarAcademy.CodeStar[Year].Team[TeamNumber].[LibraryName]</PackageId>
+      <PackageId>MohaymenAcademy.Mohaymen[Year].Team[TeamNumber].[LibraryName]</PackageId>
       <Authors>[TeamMembers]</Authors>
-      <Company>Star Academy</Company>
+      <Company>Mohaymen Academy</Company>
   </PropertyGroup>
 
 </Project>
@@ -321,7 +321,7 @@ jobs:
       id: version
       uses: pozetroninc/github-action-get-latest-release@master
       with:
-          repository: Star-Academy/<repository name>
+          repository: Mohaymen-Academy/<repository name>
     ```
 
   :::note ‌
