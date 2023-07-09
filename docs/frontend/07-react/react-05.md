@@ -71,6 +71,66 @@ export default App;
 این موضوع را گوشه ذهن خود داشته باشید که با رندر مجدد کامپوننت تابع App از ابتدا اجرا میشود و مقدار جدیدی return میشود.
 :::
 
+
+### هوک useReducer
+این هوک در واقع همان useState است با این تفاوت که میتوان منطق به روزرسانی ان را به صورت اختصاصی در نظر گرفت به نمونه کد زیر دقت کنید:
+
+```javascript
+const initialTodos = [
+  {
+    id: 1,
+    title: "Todo 1",
+    complete: false,
+  }
+];
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "COMPLETE":
+      return state.map((todo) => {
+        if (todo.id === action.id) {
+          return { ...todo, complete: !todo.complete };
+        } else {
+          return todo;
+        }
+      });
+    default:
+      return state;
+  }
+};
+
+function Todos() {
+  const [todos, dispatch] = useReducer(reducer, initialTodos);
+
+  const handleComplete = (todo) => {
+    dispatch({ type: "COMPLETE", id: todo.id });
+  };
+
+  return (
+    <>
+      {todos.map((todo) => (
+        <div key={todo.id}>
+          <label>
+            <input
+              type="checkbox"
+              checked={todo.complete}
+              onChange={() => handleComplete(todo)}
+            />
+            {todo.title}
+          </label>
+        </div>
+      ))}
+    </>
+  );
+}
+
+export default Todos;
+```
+
+- به جای useState از useReducer استفاده میکنیم
+- پارامتر اول یک تابع است که منطق بروزرسانی را مشخص میکند
+- پارامتر دوم مقدار اولیه ای state ما است
+
 ## useRef
 
 این هوک دو کار مهم برای ما انجام میدهد
@@ -160,65 +220,6 @@ export default App;
 یک useRef تعریف کردیم بعد ان را به وسیله ی attribute تگ h1 به نام ref متصل کردیم.
 حالا میتوانیم از کد با صدا کردن titleRef به الان jsx دسترسی داشته باشیم و رنگ ان را تغییر دهیم.
 
-
-### هوک useReducer 
-این هوک در واقع همان useState است با این تفاوت که میتوان منطق به روزرسانی ان را به صورت اختصاصی در نظر گرفت به نمونه کد زیر دقت کنید:
-
-```javascript
-const initialTodos = [
-  {
-    id: 1,
-    title: "Todo 1",
-    complete: false,
-  }
-];
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "COMPLETE":
-      return state.map((todo) => {
-        if (todo.id === action.id) {
-          return { ...todo, complete: !todo.complete };
-        } else {
-          return todo;
-        }
-      });
-    default:
-      return state;
-  }
-};
-
-function Todos() {
-  const [todos, dispatch] = useReducer(reducer, initialTodos);
-
-  const handleComplete = (todo) => {
-    dispatch({ type: "COMPLETE", id: todo.id });
-  };
-
-  return (
-    <>
-      {todos.map((todo) => (
-        <div key={todo.id}>
-          <label>
-            <input
-              type="checkbox"
-              checked={todo.complete}
-              onChange={() => handleComplete(todo)}
-            />
-            {todo.title}
-          </label>
-        </div>
-      ))}
-    </>
-  );
-}
-
-export default Todos;
-```
-
-- به جای useState از useReducer استفاده میکنیم 
-- پارامتر اول یک تابع است که منطق بروزرسانی را مشخص میکند
-- پارامتر دوم مقدار اولیه ای state ما است
 
 ---
 ## پروژه
