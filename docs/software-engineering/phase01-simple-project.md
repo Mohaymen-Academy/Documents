@@ -70,7 +70,6 @@ _ورودی نوع اول مانند And، نوع دوم مانند Or و نوع
 
 <details>
   <summary>مثال</summary>
-      
 ```
 get help +illness +disease -cough
 ```
