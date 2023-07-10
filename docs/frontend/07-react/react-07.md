@@ -116,7 +116,12 @@ myPoint
 weight
 تغییر کند در این صورت دوباره محاسبه انجام میشود.
 
+:::tip ساخت هوک اختصاصی
+شما میتونید هوک اختصاصی با منطق خودتون را داشته باشید برای نحوه ساخت هوک شخصی به لینک زیر مراجعه کنید
+-  [hooks custom](https://legacy.reactjs.org/docs/hooks-custom.html)
+- [Creating Custom React Hooks](https://medium.com/technofunnel/creating-custom-react-hooks-9d4f382359bb)
 
+:::
 ---
 ## پروژه
 
