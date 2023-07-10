@@ -1,111 +1,61 @@
 ---
 title: React 06
-description: react lifecycle & useEffect hook
+description: react with tailwindcss
 ---
 
-## چرخه ی حیات کامپوننت 
+![](../images/tailwindcss.webp)
 
-هر کامپوننت در ریکت یک چرخه ی حیات دارد که از لحظه ایجاد تا لحظه تخریب مداوم ان را طی میکند.
-به تصویر زیر دفت کنید:
+##  نصب tailwincss در ریکت 
 
-![چرخه حیاط کاموننت](../images/react-lifecycle.png)
+برای نصب tailwindcss در ریکت دستور زیر را اجرا کنید:
 
-مراحل زیر به ترتیب برای هر کامپوننتی اجرا میشود
-- Initialization: 
-هنگام ساخت کامپوننت و مقدار دهی اولیه است اجرا میشود
-- Mounting:
- هنگامی که کامپوننت به صفحه اضافه میشود اجرا میشود
-- Updation: 
-هنگامی که کامپوننت به هر علت رندر مجدد میشود اجرا میشود
-- Unmounting: 
-زمانی که کامپوننت به هر علت میخواد از ضفحه حذف شود اجرا میشود
-
-
-میتوانیم نگاهی عمیق تر به چرخه حیاط کامپوننت ها بیندازیم 
-
-![](../images/react-lifecycle-deep.webp)
-
-
-در تصویر بالا مشاهده میکنید که سه متد مهم داریم 
-- componentDidMount:
-  هنگامی که کامپوننت به صفحه اضافه میشود اجرا میشود
-
-- componentDidUpdate:
-  هنگامی که کامپوننت به هر علت رندر مجدد میشود اجرا میشود
-
-- componentWillUnmount:
- زمانی که کامپوننت به هر علت میخواد از ضفحه حذف شود اجرا میشود
-
-حالا چطور میتونیم به این تابع ها دسترسی پیدا کنیم ؟؟؟
-
-## useEffect 
-هوک useEffect تمامی موارد چرخه حیاط را به ما میدهد 
- به نمونه زیر را دقت کنید:
-
-```javascript
-/**
-* const [state, setState] = useState(init)
-*
-* {state}
-* setState(new value)
-*
-* useEffect(callback function, dependencies)
-* useEffect(() => {
-*     mounting and after updating each dependencies
-*     return () => {
-*       unmounting and before updateing each dependencies
-*     }
-*   }, [states or props])
-*/
-
-useEffect(() => {
-    //step 1
-    console.log("mounting and after updating each dependencies");
-    
-    return () => {
-        //step 2
-        console.log("unmounting and before updating each dependencies");
-    };
-}, []);
+```bash
+npm install -D tailwindcss
+npx tailwindcss init
 ```
 
+حالا فایل tailwind.config.js را باز کنید و محتوای زیر را جایگذاری کنید:
 
-زمانی که کامپوننت شروع به mount شدن میشود step1 اجرا میشود و زمانی که unmount میشود step2 اجرا میشود.
 
-همچنین زمانیکه هر کدام از state ها یا prop ها تغییری پیدا کند مجدد رندر انجام شده و قبل از بروزرسانی prop | state ها step2 اجرا میشود و بعد از بروزرسانی state | prop ها step 1 اجرا میشود.
-
-پس در واقع ما میتوانیم تمام lifecycle یک کامپوننت را با useEffect مدیریت کنیم.
+```javascript
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
 
 :::caution نکته
-معمولا ارسال درخواست داده به سرور در این هوک انجام میشود.
+با این کار tailwind تمامی فایل ها با پسوند js,jsx,ts,tsx را در پروژه اسکن میکند
+
 :::
 
-حالا اگر به یک useEffect وابستگی داده شود چه اتفاقی رخ خواهد داد؟
+حالا محتوای زیر را به فایل src/index.css خود اضافه کنید:
 
-```javascript
-const [counter, setCounter]= useState(0);
-
-useEffect(() => {
-    //step 1
-    console.log("mounting and after updating each dependencies");
-    
-    return () => {
-        //step 2
-        console.log("unmounting and before updating each dependencies");
-    };
-}, [counter]);
+```scss
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 ```
 
-هوک بالا زمانی اجرا خواهد شد که counter تغییر کند.
+برای استفاده فقط کافی است از کلاس های tailwind استفاده کنید
 
-برای دسترسی به didMount , willUnmount میتوان از روش زیر اقدام کرد و هوک را بدون وابستگی نوشت
 
 ```javascript
-useEffect(() => {
-    console.log("mounting");
-    
-    return () => {
-        console.log("unmounting");
-    };
-}, []);
+export default function App() {
+  return (
+    <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
+  )
+}
 ```
+
+:::tip مطالعه
+- [Tailwindcss Install doc](https://tailwindcss.com/docs/installation/framework-guides)
+:::

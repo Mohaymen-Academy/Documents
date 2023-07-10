@@ -1,128 +1,111 @@
 ---
 title: React 07
-description: react useCallback & useMemo hooks
+description: react lifecycle & useEffect hook
 ---
 
+## چرخه ی حیات کامپوننت 
 
-![](../images/cpu.webp)
+هر کامپوننت در ریکت یک چرخه ی حیات دارد که از لحظه ایجاد تا لحظه تخریب مداوم ان را طی میکند.
+به تصویر زیر دفت کنید:
 
-## هوک useCallback
-وظیفه ی این هوک ذخیره کردن تابع در مموری است به طوری که در رندر مجدد ان تابع دیگر ساخته نشود.
+![چرخه حیاط کاموننت](../images/react-lifecycle.png)
 
-بیایید کمی عمیق تر نگاه کنیم در قسمت های قبل گفتیم اگر رندر مجددی اتفاق بیافتد تابع کامپوننت مجدد اجرا میشود و مقدار جدید را بازگردانی میکند
-
-در مثالی در useRef دیدم که متغیر معمولی ما با رندر مجدد با مقدار اولیه اش پر میشد در این صورت تابع ها هم از این قانون پیروی میکنند.
-
-به مثال زیر دقت کنید:
-
-```javascript
-  const [title, setTitle] = useState('Without Title');
-
-  const changeTitleHandler = () => {
-    setTitle('new title');
-  };
-```
-
-در قطعه کد بالا میبینیم که تابع ها هم درون یک متغییر ذخیره میشوند پس با رندر مجدد دوباره بدنه تابع ساخته شده و درون متغیر قرار میگیرد.
-
-برای این که یک بار تابع ساخته شود و در صورت به بدنه تابع در رندر مجدد از useCallback استفاده میکنیم تا ان را درون مموری ذخیره کرده و در رندر های بعدی فقط ان را بازگردانی کند.
-
-این کار باعث سرعت رندر بیشتر میشود.
-
-حالا قطعه کد بالا را به صورت useCallback تغییر میدهیم:
-
-```javascript
-  const [title, setTitle] = useState('Without Title');
-
-  const changeTitleHandler = useCallback(() => {
-    setTitle('new title');
-  }, [setTitle]);
-```
-
-پارامتر اول تابع مورد نظر ما هست که میخوام ان را درون متغیر
-changeTitleHandler
-بریزیم و پارامتر دوم لیستی از 
-dependency هایی 
-است که با تغییر انها نیاز داریم تابع مجدد ساخته شود
-در واقع با تغییر وابستگی ها کامپوننت مجدد رندر میشود و بدنه تابع ما بروزرسانی میشود.
+مراحل زیر به ترتیب برای هر کامپوننتی اجرا میشود
+- Initialization: 
+هنگام ساخت کامپوننت و مقدار دهی اولیه است اجرا میشود
+- Mounting:
+ هنگامی که کامپوننت به صفحه اضافه میشود اجرا میشود
+- Updation: 
+هنگامی که کامپوننت به هر علت رندر مجدد میشود اجرا میشود
+- Unmounting: 
+زمانی که کامپوننت به هر علت میخواد از ضفحه حذف شود اجرا میشود
 
 
-## هوک useMemo 
+میتوانیم نگاهی عمیق تر به چرخه حیاط کامپوننت ها بیندازیم 
 
-هوک useMemo همان هوک useCallback است با این تفاوت که در useCallback بدنه تابع درون مموری ذخیره و بازگردانی میشد ولی در useMemo مقدار بازگردانی شده در مموری ذخیره و بازگردانی میشود.
+![](../images/react-lifecycle-deep.webp)
 
-برای مثال فرض کنید اپلیکشن بازی ساختیم و برای محاسبه ی امتیاز کاربر نیاز به پردازش زیادی است در صورتی که به صورت معمولی عمل کنیم:
+
+در تصویر بالا مشاهده میکنید که سه متد مهم داریم 
+- componentDidMount:
+  هنگامی که کامپوننت به صفحه اضافه میشود اجرا میشود
+
+- componentDidUpdate:
+  هنگامی که کامپوننت به هر علت رندر مجدد میشود اجرا میشود
+
+- componentWillUnmount:
+ زمانی که کامپوننت به هر علت میخواد از ضفحه حذف شود اجرا میشود
+
+حالا چطور میتونیم به این تابع ها دسترسی پیدا کنیم ؟؟؟
+
+## useEffect 
+هوک useEffect تمامی موارد چرخه حیاط را به ما میدهد 
+ به نمونه زیر را دقت کنید:
 
 ```javascript
-import { useState } from "react";
+/**
+* const [state, setState] = useState(init)
+*
+* {state}
+* setState(new value)
+*
+* useEffect(callback function, dependencies)
+* useEffect(() => {
+*     mounting and after updating each dependencies
+*     return () => {
+*       unmounting and before updateing each dependencies
+*     }
+*   }, [states or props])
+*/
 
-const  App = () => {
-    const [weight , setWeight] = useState(1);
-    const myPoint = expensiveCalculation(weight);
-
-    return (
-        <div>
-            <h1>{myPoint}</h1>
-        </div>
-    );
-}
-export default App;
-
-const expensiveCalculation = (weight) => {
-    console.log("Calculating...");
-    let num = 0;
-    for (let i = 0; i < 1000000000; i++) {
-        num += weight;
-    }
-    return num;
-};
+useEffect(() => {
+    //step 1
+    console.log("mounting and after updating each dependencies");
+    
+    return () => {
+        //step 2
+        console.log("unmounting and before updating each dependencies");
+    };
+}, []);
 ```
 
-در قطعه کد بالا با هر بار رندر مجدد کامپوننت یک بار
-expensiveCalculation
-اجرا میشود و پردازشی سنگین روی صفحه ایجاد میکند برای جلوگیری از این پردازش های تکراری و اضافه از useMemo استفاده میکنم
-به قطعه کد زیر دقت کنید :
 
-```javascript
-import { useState } from "react";
+زمانی که کامپوننت شروع به mount شدن میشود step1 اجرا میشود و زمانی که unmount میشود step2 اجرا میشود.
 
-const  App = () => {
-  const [weight , setWeight] = useState(1);
-  const myPoint = useMemo(() =>  expensiveCalculation(weight), [weight]);;
+همچنین زمانیکه هر کدام از state ها یا prop ها تغییری پیدا کند مجدد رندر انجام شده و قبل از بروزرسانی prop | state ها step2 اجرا میشود و بعد از بروزرسانی state | prop ها step 1 اجرا میشود.
 
-  return (
-    <div>
-      <h1>{myPoint}</h1>
-    </div>
-  );
-}
+پس در واقع ما میتوانیم تمام lifecycle یک کامپوننت را با useEffect مدیریت کنیم.
 
-export default App;
-
-
-const expensiveCalculation = (weight) => {
-  console.log("Calculating...");
-  let num = 0;
-  for (let i = 0; i < 1000000000; i++) {
-    num += weight;
-  }
-  return num;
-};
-```
-
-در این صورت با رندر مجدد کامپوننت همان مقدار قبلی که محاسبه شده درون
-myPoint
-ریخته میشود مگر اینکه وابستگی های ان یعنی
-weight
-تغییر کند در این صورت دوباره محاسبه انجام میشود.
-
-:::tip ساخت هوک اختصاصی
-شما میتونید هوک اختصاصی با منطق خودتون را داشته باشید برای نحوه ساخت هوک شخصی به لینک زیر مراجعه کنید
--  [hooks custom](https://legacy.reactjs.org/docs/hooks-custom.html)
-- [Creating Custom React Hooks](https://medium.com/technofunnel/creating-custom-react-hooks-9d4f382359bb)
-
+:::caution نکته
+معمولا ارسال درخواست داده به سرور در این هوک انجام میشود.
 :::
----
-## پروژه
 
-اپلیکشین TODO خود را بهینه سازی کنید.
+حالا اگر به یک useEffect وابستگی داده شود چه اتفاقی رخ خواهد داد؟
+
+```javascript
+const [counter, setCounter]= useState(0);
+
+useEffect(() => {
+    //step 1
+    console.log("mounting and after updating each dependencies");
+    
+    return () => {
+        //step 2
+        console.log("unmounting and before updating each dependencies");
+    };
+}, [counter]);
+```
+
+هوک بالا زمانی اجرا خواهد شد که counter تغییر کند.
+
+برای دسترسی به didMount , willUnmount میتوان از روش زیر اقدام کرد و هوک را بدون وابستگی نوشت
+
+```javascript
+useEffect(() => {
+    console.log("mounting");
+    
+    return () => {
+        console.log("unmounting");
+    };
+}, []);
+```
