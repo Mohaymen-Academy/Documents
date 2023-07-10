@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkcodestar_documents=self.webpackChunkcodestar_documents||[]).push([[4121],{8070:e=>{e.exports=JSON.parse('[{"label":"Sandbox","permalink":"/Documents/docs/tags/sandbox","count":1},{"label":"Readonly","permalink":"/Documents/docs/tags/readonly","count":3}]')}}]);
