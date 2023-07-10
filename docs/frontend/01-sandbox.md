@@ -342,8 +342,159 @@ export {Square};
 -   [MDN - import](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/import/)
 
 ---
+#### Async & Await
+Async / Await روش تقریبا جدیدی برای نوشتن کد ناهمگام در JavaScript است. قبل‌ها ما از callbackها و promiseها استفاده می‌کردیم. Async / Await در واقع بر پایه promiseها ساخته شده است
 
-### Node.js & npm
+چرا async / await؟ به زبان ساده، async / await شما را قادر می‌سازد تا کد ناهمگامی را به شیوه همگام بنویسید.
+
+##### توابع Async
+
+برای ساخت یک تابع async، تنها کاری که باید انجام دهیم، این است که کلمه کلیدی  asyncرا قبل از تعریف تابع قرار دهیم. به مانند این کد:
+
+```javascript
+async function asyncFunc() {
+  return "Hey!";
+}
+```
+نکته‌ای که درباره توابع async باید بدانید، این است که آن‌ها همیشه یک promise را بر می‌گردانند.
+
+در مواقعی مانند مورد بالا که ما چیزی را بر می‌گردانیم که یک promise نیست، مقدار برگشتی به طور خودکار در یک promise جمع‌بندی می‌شود، که در آن مقدار resolve شده، یک مقدار غیر promise است. برای کد بالا، 
+
+```javascript
+ asyncFunc.then(result = console.log(result))
+```
+
+رشته «Hey!» را بر خواهد گرداند.
+
+##### Await
+
+کلمه کلیدی await فقط می‌تواند در یک بلوک async استفاده شود، در غیر این صورت یک خطای سینتکس را بروز خواهد داد. این به این معنی است که شما نمی‌توانید از await در بالاترین سطح کد خود استفاده کنید. به عبارتی، از آن به وسیله خودش استفاده نکنید.
+
+چه زمانی از آن استفاده کنیم؟ اگر یک تابع ناهمگام داخل یک بلوک async دارید، از آن استفاده کنید. پس فرض کنید که باید برخی داده‌ها را از سرور خود بگیریم و سپس از آن داده‌ها داخل بلوک async‌ خود استفاده کنیم. ما از await برای متوقف کردن اجرای تابع استفاده می‌کنیم، و پس از این که داده‌ها وارد می‌شود آن را ادامه می‌دهیم. برای مثال:
+
+```javascript
+async function asyncFunc() {
+ 
+  // دریافت داده‌ها از یک اندپوینت
+ 
+  const data = await axios.get("/some_url_endpoint");
+ 
+  return data;
+ 
+}
+```
+
+چرا از await استفاده کنیم؟ به جای استفاده از await می‌توانستیم به راحتی از یک promise استفاده کنیم، نه؟
+
+
+```javascript
+async function asyncFunc() {
+ 
+  let data;
+ 
+  // دریافت داده‌ها از یک اندپوینت
+ 
+  axios.get("/some_url_endpoint")
+ 
+    .then((result) => {
+ 
+      data = result
+ 
+    });
+ 
+  return data;
+ 
+}
+```
+
+Await یک راه زیباتری برای نوشتن یک promise داخل یک تابع async است. Await خوانایی کد را به طور فوق العاده‌ای افزایش می‌دهد و از این رو ما از آن استفاده می‌کنیم.
+
+بیایید فرض کنیم که ما چند تابع ناهمگام داخل بلوک async خود داریم. به جای زنجیر کردن promiseها، می‌توانیم این کار را انجام دهیم که راه بسیار مناسب‌تری است:
+
+```javascript
+async function asyncFunc() {
+ 
+  // دریافت داده‌ها از یک اندپوینت
+ 
+  const response = await axios.get("/some_url_endpoint");
+ 
+  const data = await response.json();
+ 
+  return data;
+ 
+}
+```
+
+##### Try…catch
+همان try-catch قدیمی، رایج‌ترین راه برای مدیریت خطاها در هنگام استفاده از async / await است. تنها کاری که باید انجام دهید، کپسول کردن کد خود در یک بلوک try و مدیریت خطاهایی که در catch بروز می‌دهند است.
+
+```javascript
+async function asyncFunc() {
+ 
+  try {
+ 
+    // دریافت داده‌ها از یک اندپوینت
+ 
+    const data = await axios.get("/some_url_endpoint");
+ 
+    return data;
+ 
+  } catch(error) {
+ 
+    console.log("error", error);
+ 
+    // روش مناسب برای مدیریت خطا
+ 
+  }
+ 
+}
+```
+اگر در هنگام دریافت داده‌ها از endpoint خطایی بروز داده شود، روند اجرایی به بلوک catch منتقل می‌شود و می‌توانیم هر خطایی که بروز داده شده است را مدیریت کنیم. اگر چندین خط await داریم، بلوک catch خطاهایی که در تمام خط‌ها بروز داده‌اند را دریافت می‌کند.
+
+##### اگر try…catch نه...
+
+یک روش جایگزین این است که .catch() را که به promiseای که توسط تابع async تولید شده است، متصل کنیم. به یاد داشته باشید که تابع async یک promise را بر می‌گرداند. اگر خطایی بروز دهد، این تابع یک promise رد شده را بر می‌گرداند. پس در بخش فراخوانی تابع، این کار را انجام می‌دهیم:
+
+```javascript
+asyncFunc()
+    .then((data) => {})
+    .catch((error) => {
+ 
+  // روش مناسب برای مدیریت خطا
+ 
+});
+```
+
+##### Await Promise.all
+اگر چندین promise داریم، می‌توانیم از Promise.all به همراه await استفاده کنیم.
+
+
+```javascript
+async function asyncFunc() {
+ 
+  const response = await Promise.all([
+ 
+    axios.get("/some_url_endpoint"),
+ 
+    axios.get("/some_url_endpoint")
+ 
+  ]);
+}
+```
+##### نتیجه گیری
+به طور خلاصه، async / await یک سینتکس مرتب‌تری برای نوشتن کد JavaScript ناهمگام است. این نوع توابع، خوانایی و جریان کد شما را ارتقا می‌دهند.
+
+در هنگام استفاده از async / await، این موارد را به یاد داشته باشید:
+
+- توابع async یک promise را بر می‌گردانند.
+- Await فقط می‌تواند داخل یک بلوک async استفاده شود.
+- Await تا زمانی که تابع resolve شده یا رد شود، منتظر می‌ماند.
+
+
+
+---
+
+### Node.js & nvm & npm
 
 با استفاده از `import` می‌توانید کتابخانه‌هایی را که دیگران توسعه داده‌اند، به کد خود اضافه کنید.
 برای این کار مرسوم‌ترین روش استفاده از یک Package Manager است که معروف‌ترینِ آن‌ها npm می‌باشد.
@@ -358,6 +509,39 @@ Node.js
 یک Runtime Environment است که به ما این امکان را می‌دهد که بتوانیم کد JavaScript را بدونِ نیاز به مرورگر اجرا کنیم.
 از Node.js معمولاً برای برنامه‌نویسی سمت سرور استفاده می‌شود که ما در این دوره به آن نمی‌پردازیم
 و صرفاً از npm استفاده خواهیم کرد.
+
+#### NVM
+زمانی که روی سیستم خود برای develop کردن پروژه های متعددی داریم قاعدتا ورژن های متفاوتی از node را نیازمند هستیم.
+[nvm](https://github.com/nvm-sh/nvm) یا همان [node version manager](https://github.com/nvm-sh/nvm) به ما کمک میکند تا بین نسخه های node به راحتی جابه جا شویم
+برای نصب ار روی سیستم عامل لینوکس به روش زیر عمل میکنیم
+```bash 
+    sudo apt install curl 
+    curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
+    source ~/.bashrc   
+```
+
+حالا با اجرا کردن دستور nvm -v باید بتوانید ورژن ان را مشاهده کنید.
+حالا برای اینکه بتوانیم یک ورژن خاصی از node را به وسیله ی nvm نصب کنیم از دستور زیر استفاده میکنیم:
+```bash 
+    nvm i 18
+```
+```bash 
+    nvm i 16.*
+```
+```bash 
+    nvm i 14.2.*
+```
+```bash 
+    nvm install --lts 
+```
+
+
+برای نمایش لیست node های نصب شده از nvm list استفاده میکنیم.
+ورژنی که کنار ان ستاره دارد به صورت پیش فرض روی سیستم تنظیم شده است.
+برای جابه جایی بین نسخه ها از دستور زیر استفاده میکنیم:
+```bash
+    nvm use 14.2.*
+```
 
 #### Package Installation
 

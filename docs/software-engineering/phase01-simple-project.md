@@ -70,14 +70,11 @@ _ورودی نوع اول مانند And، نوع دوم مانند Or و نوع
 
 <details>
   <summary>مثال</summary>
-  <div>
-      
 ```
 get help +illness +disease -cough
 ```
 
 با استفاده از Query بالا می‌توانیم کتاب‌هایی را پیدا کنیم که حتماً شامل عبارات `get` و `help` و همچنین حداقل یکی از عبارات `illness` و `disease` باشند و شامل عبارت `cough` نباشند.
-  </div>
 </details>
 
 ## جمع‌بندی و مطالعه بیشتر

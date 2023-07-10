@@ -12,7 +12,7 @@ description: No! Half of the taste is in the smell! You're sucking up all the ta
 
 -   چه راه‌هایی برای تست‌کردن سامانه وجود دارد؟
 -   مزایا و معایب این روش‌ها نسبت به یکدیگر چیست؟
--   در Angular چگونه می‌توان تست نوشت؟
+-   در React چگونه می‌توان تست نوشت؟
 -   چگونه می‌توان فهمید چند درصد از کدهای موجود تست شده‌اند؟
 
 ---
@@ -49,14 +49,14 @@ description: No! Half of the taste is in the smell! You're sucking up all the ta
 
 همان‌طور که از اسم آن مشخص است، در Unit Testing به تست‌کردن کوچک‌ترین اجزاء یک برنامه یعنی توابع، کلاس‌ها و متغیرها می‌پردازیم.
 در این روش معمولاً به ظاهر سایت یا تجربۀ کاربر توجه نمی‌کنیم و صرفاً کارکرد صحیح Unitها را مورد بررسی قرار می‌دهیم.
-در ادامه به نحوۀ نوشتن Unit Test در Angular می‌پردازیم.
+در ادامه به نحوۀ نوشتن Unit Test در React می‌پردازیم.
 
 ---
 
-### Unit Testing in Angular
+### Unit Testing in React
 
-خوشبختانه Angular به‌صورت پیش‌فرض از Unit Testing پشتیبانی می‌کند.
-در Angular می‌توانید با استفاده از ابزارهای Karma و Jasmine به نوشتن تست بپردازید.
+خوشبختانه React به‌صورت پیش‌فرض از Unit Testing پشتیبانی می‌کند.
+در React می‌توانید با استفاده از ابزارهای [Jest](https://jestjs.io/) به نوشتن تست بپردازید.
 این تست‌ها برای اطمینان از عملکرد صحیح تمام قسمت‌های سامانه،
 اعم از کامپوننت‌ها، سرویس‌ها، توابع و ... می‌توانند مورد استفاده قرار بگیرند.
 
@@ -64,41 +64,21 @@ description: No! Half of the taste is in the smell! You're sucking up all the ta
 صرفاً کافی است با اجرای دستور زیر در Terminal، تست‌های موجود را اجرا کنید:
 
 ```shell
-ng test
+npm test
 ```
 
 با اجرای دستور بالا یک مرورگر باز خواهد شد که لیستی از تست‌ها را به شما نشان می‌دهد؛
 همچنین مشخص می‌کند کدام‌یک از آن‌ها موفق و کدام‌یک ناموفق بوده‌اند.
 
-از آنجایی که سایت Angular به‌طور کامل در مورد تست‌نویسی توضیح داده است،
+از آنجایی که سایت React به‌طور کامل در مورد تست‌نویسی توضیح داده است،
 شما را به مطالعۀ مستندات مربوطه دعوت می‌کنیم
 و از آوردن مطالب تکراری در این مستند می‌پرهیزیم.
 
 برای آشنایی بیشتر با این مفهوم می‌توانید از لینک‌های زیر استفاده کنید:
 
--   [Angular - Intro to Testing](https://angular.io/guide/testing)
--   [Angular - Code Coverage](https://angular.io/guide/testing-code-coverage)
--   [Angular - Testing services](https://angular.io/guide/testing-services)
--   [Angular - Basics of Testing Components](https://angular.io/guide/testing-components-basics)
--   [Angular - Component Testing Scenarios](https://angular.io/guide/testing-components-scenarios)
-
----
-
-### Mocking
-
-زمانی که به تست‌کردن قسمتی از سامانه می‌پردازیم،
-ممکن است این قسمت با قسمت‌های دیگر در ارتباط باشد و برای اجرای تست‌ها،
-کدهای دیگری احتیاج به اجراشدن داشته باشند که ممکن باشد در عملکرد قسمت فعلی خلل ایجاد کنند.
-به‌عنوان مثال فرض کنید بخواهیم سرویسی را تست کنیم که برای انجام عملیاتی احتیاج به فرستادن Request به سرور داشته باشد؛
-قطعاً منطقی نیست برای اجرای تست‌ها نیاز باشد چندصد میلی‌ثانیه منتظر دریافت پاسخ از سرور باشیم؛
-از طرفی ممکن است به هر علتی سرور دچار مشکل شده باشد و نتواند پاسخ درستی به ما برگرداند
-و تست‌ها Fail شوند.
-در چنین مواقعی از Mocking استفاده می‌کنیم؛
-به‌طوری که یک کلاس یا شیء غیرواقعی می‌سازیم و آن را جای کلاس یا شیء اصلی جا می‌زنیم.
-
-برای آشنایی بیشتر با این مفهوم می‌توانید از لینک زیر استفاده کنید:
-
--   [Medium - TIL: Mocking localStorage and sessionStorage in Angular Unit Tests](https://armno.medium.com/til-mocking-localstorage-and-sessionstorage-in-angular-unit-tests-a765abdc9d87)
+-   [React - Intro to Testing](https://legacy.reactjs.org/docs/testing.html)
+-   [React Testing](https://legacy.reactjs.org/docs/testing-recipes.html)
+-   [Jest](https://jestjs.io/docs/getting-started)
 
 ---
 
