@@ -59,3 +59,8 @@ export default function App() {
 :::tip مطالعه
 - [Tailwindcss Install doc](https://tailwindcss.com/docs/installation/framework-guides)
 :::
+
+---
+## پروژه
+
+استفاده از tailwind در پروژه TODO
