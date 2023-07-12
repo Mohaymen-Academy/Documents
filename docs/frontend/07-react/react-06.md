@@ -5,7 +5,7 @@ description: react with tailwindcss
 
 ![](../images/tailwindcss.webp)
 
-##  نصب tailwincss در ریکت 
+##  نصب tailwindcss در ریکت 
 
 برای نصب tailwindcss در ریکت دستور زیر را اجرا کنید:
 
