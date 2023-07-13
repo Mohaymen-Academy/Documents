@@ -116,9 +116,10 @@ function App() {
 export default App;
 ```
 
-نکته :
+:::caution نکته
 - صدا کردن axios در useEffect رخ داده است.
 - برای هر ردیف در map حتما باید key غیر تکراری تعریف شود
+:::
 
 :::tip
  میتنوانید مثال بالا را با useMemo , useCallback بهینه سازی کنید
