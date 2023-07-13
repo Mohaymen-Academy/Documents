@@ -1,5 +1,5 @@
 ---
-title: React 07
+title: Lifecycle & useEffect
 description: react lifecycle & useEffect hook
 ---
 

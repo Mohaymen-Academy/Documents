@@ -1,5 +1,5 @@
 ---
-title: React 02
+title: JSX &  Component & Props
 description: hands dirty with react components & props
 ---
 

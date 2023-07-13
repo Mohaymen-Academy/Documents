@@ -1,5 +1,5 @@
 ---
-title: React 04
+title: Styling
 description: react styling
 ---
 ## استایل دهی در ریکت 

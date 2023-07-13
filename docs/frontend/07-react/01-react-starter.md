@@ -1,5 +1,5 @@
 ---
-title: React 01
+title: React Starter
 description: Starting with React
 ---
 
