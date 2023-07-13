@@ -1,5 +1,5 @@
 ---
-title: React 06
+title: tailwindcss
 description: react with tailwindcss
 ---
 
