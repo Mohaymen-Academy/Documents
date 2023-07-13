@@ -1,6 +1,7 @@
 ---
 title: Full-Text Search
 description: ''
+deadline: '2 days'
 ---
 
 ## مقدمه
@@ -23,7 +24,7 @@ description: ''
 
 یکی از داده‌ساختار‌های مورد استفاده به این منظور، Inverted Index می‌باشد. برای آشنایی با این داده ساختار [Inverted Index - GeeksforGeeks](https://www.geeksforgeeks.org/inverted-index/)
 را مطالعه کنید؛  سپس برای فهم بهتر
-ویدئوی [The Inverted Index](https://www.youtube.com/watch?v=bnP6TsqyF30)
+ویدئوی [The Inverted Index](https://www.dideo.ir/v/yt/bnP6TsqyF30/18-3-the-inverted-index-stanford-nlp-professor-dan-jurafsky-%26-chris-manning-youtube)
 را مشاهده نمایید.
 
 ## موتور جستجو
@@ -66,10 +67,11 @@ Result1, Result2, Result3, ...
 1. کلماتی که حداقل یکی از آن‌ها باید در نتیجه وجود داشته باشند. (این کلمات با پیشوند `+` مشخص می‌شوند)
 1. کلماتی که نباید در نتیجه وجود داشته باشند. (این کلمات با پیشوند `-` مشخص می‌شوند)
 
-_ورودی نوع اول مانند And، نوع دوم مانند Or و نوع سوم مانند Not می‌باشد._
+_ورودی نوع اول مانند And، نوع دوم مانند Or و نوع سوم مانند Not می‌باش    د._
 
 <details>
   <summary>مثال</summary>
+
 ```
 get help +illness +disease -cough
 ```
@@ -80,7 +82,7 @@ get help +illness +disease -cough
 ## جمع‌بندی و مطالعه بیشتر
 در این فاز به طراحی و پیاده‌سازی یک موتور جست‌وجوی ساده‌شده پرداختیم و با چگونگی عملکرد موتور‌های جست‌و‌جو آشنا شدیم. در ادامه و در فاز‌های بعد، با یادگیری مفاهیم کد‌نویسی تمیز و اصول مهندسی نرم‌افزار، دوباره به سراغ آن می‌آییم و علاوه بر تمیز‌سازی آن، امکانات دیگری را نیز به این پروژه اضافه خواهیم کرد تا نکات جالب‌ دیگری را نیز درباره جست‌وجوی متنی بیاموزیم.
 
-برای آشنایی بیشتر با نحوۀ کار موتور‌های جستجو دیدن ویدیو [How Google searches one document among Billions of documents quickly](https://www.youtube.com/watch?v=CeGtqouT8eA)
+برای آشنایی بیشتر با نحوۀ کار موتور‌های جستجو دیدن ویدیو [How Google searches one document among Billions of documents quickly](https://www.dideo.ir/v/yt/CeGtqouT8eA/how-google-searches-one-document-among-billions-of-documents-quickly%3F)
 توصیه می‌شود.
 
 
