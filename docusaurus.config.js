@@ -81,25 +81,20 @@ const config = {
                         position: 'left',
                         label: 'مهندسی نرم‌افزار',
                     },
-                    // {
-                    //     type: 'doc',
-                    //     docId: 'general',
-                    //     position: 'left',
-                    //     label: 'عمومی',
-                    // },
-                    // {
-                    //     type: 'doc',
-                    //     docId: 'project',
-                    //     position: 'left',
-                    //     label: 'پروژه',
-                    // },
-                    // {
-                    //     href: 'https://www.aparat.com/Code_star/',
-                    //     label: 'Aparat',
-                    //     position: 'right',
-                    // },
                     {
-                        href: 'https://github.com/Mohaymen-Acadmey/',
+                        type: 'doc',
+                        docId: 'general',
+                        position: 'left',
+                        label: 'عمومی',
+                    },
+                    {
+                        type: 'doc',
+                        docId: 'project',
+                        position: 'left',
+                        label: 'پروژه',
+                    },
+                    {
+                        href: 'https://github.com/Mohaymen-Academy/',
                         label: 'GitHub',
                         position: 'right',
                     },
@@ -138,12 +133,12 @@ const config = {
                         items: [
                             {
                                 label: 'GitHub',
-                                href: 'https://github.com/Star-Academy/',
+                                href: 'https://github.com/Mohaymen-Academy/',
                             },
-                            {
-                                label: 'Aparat',
-                                href: 'https://www.aparat.com/Code_star/',
-                            },
+                            // {
+                            //     label: 'Aparat',
+                            //     href: 'https://www.aparat.com/Code_star/',
+                            // },
                         ],
                     },
                 ],
