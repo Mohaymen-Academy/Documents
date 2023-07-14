@@ -1,3 +1,8 @@
+---
+title: On-boarding
+description: ''
+---
+
 ## خوش اومدی!
 
 اگر توی افتتاحیه شرکت کرده باشی و سر ارائه کادر برگزاری خوابت نبرده باشه، احتمالا با شیوه‌نامه حضور توی بوت‌کمپ آشنایی و می‌دونی قراره چه مسیری رو با هم طی کنیم. اما اگر در جریان نیستی یا یادت نمیاد که چیا گفته شده، می‌تونی این فایل متنی‌ رو مطالعه کنی.
@@ -8,11 +13,7 @@
 
 در این دوره، ما از Github برای مدیریت کارها و اشتراک‌گذاری مطالب، و برای ارتباط و اطلاع‌رسانی، از پیام‌رسان سروش‌پلاس استفاده می‌کنیم. اگر سوال یا بازخوردی داشتی می‌تونی به صورت حضوری، و یا از طریق سروش‌پلاس به منتورت پیام‌ بدی و مشکل رو برطرف کنی.
 برای شروع، توی دو سه جا باید عضو بشیم:
-اولین و مهم‌ترینش گیت‌هابه. لازمه ایمیلی که گیت‌هاب باهاش داری رو اینجا برامون بنویسی و از منتور‌ت بخوای که دعوتت کنه.
-
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScHQBNlQT_iBb_t9RBWEibGLjMq-Di3-LfsUt6mLG0rrnaeKQ/viewform?embedded=true" width="640" height="585" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-
-<!-- https://docs.google.com/forms/d/e/1FAIpQLScHQBNlQT_iBb_t9RBWEibGLjMq-Di3-LfsUt6mLG0rrnaeKQ/viewform?usp=sf_link -->
+اولین و مهم‌ترینش گیت‌هابه. لازمه ایمیلی که گیت‌هاب باهاش داری رو [اینجا](https://docs.google.com/forms/d/e/1FAIpQLScHQBNlQT_iBb_t9RBWEibGLjMq-Di3-LfsUt6mLG0rrnaeKQ/viewform?usp=sf_link) برامون بنویسی و از منتور‌ت بخوای که دعوتت کنه.
 
 * [یکی کانال اطلاع‌رسانی دوره](https://splus.ir/joingroup/AGPkREG8dW1NQIXOpwtFJg)
 
@@ -24,7 +25,7 @@
 
 ## گام صفر
 
-![Journey begins](./images/journey.jpeg)
+![Journey begins](./images/journey-min.jpeg)
 
 برای اینکه این مسیر رو بهتر درک کنی، بخشی از فرایند خوش‌آمدگوییت خودآموزه تا با روند کار بهتر آشنا بشی.
 
