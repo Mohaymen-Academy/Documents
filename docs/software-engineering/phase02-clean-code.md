@@ -18,19 +18,6 @@ description: ''
 
 ## هنر کد تمیز!
 
-<figure style="margin-left: 80px; margin-right: 80px;">
-    <blockquote style="padding: 15px;
-    background: #eee;
-    border-radius: 5px;
-    margin: 0;
-    color: black;
-    font-family: serif;
-  	font-size: 1.1rem;">
-        It is not enough for code to work!
-    </blockquote>
-    <figcaption style="padding-top: 5px;"> — Robert.C Martin</figcaption>
-</figure>
-
 در ابتدا در مورد دو سوال زیر فکر کنید و با هم‌تیمی خود بحث کنید و پاسخ خود را در ایشو بنویسید:
 
 1. چرا تمیز بودن کد و داشتن معماری خوب مهم است؟ چرا باید وقت و انرژی زیادی صرف طراحی و نوشتن کد تمیز شود؟
