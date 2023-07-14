@@ -4,9 +4,7 @@ description: ''
 ---
 
 
-> You spend much more time reading code than writing code.
-
-> It is not enough for code to work!
+![](./images/phase02-cleanCode.jpg)
 
 ## مقدمه
 
@@ -107,6 +105,8 @@ description: ''
 
 ## Code Review
 
+![](./images/phase02-codeReview.png)
+
 بخش مهمی از یادگیری اصول کد‌نویسی تمیز، هنگام بررسی کد‌های دیگران و یافتن نقاط قوت و ضعف آن‌ها ایجاد می‌شود. همچنین با این کار، شما روش‌های مختلف حل مسئله را توسط تیم‌های دیگر خواهید داد و می‌توانید از آن‌ها ایده بگیرید.
  
  در این قسمت، ابتدا یک Pull Request ایجاد کنید و از یک تیم دیگر بخواهید Pull Request شما که در مرحله‌ی قبل ساخته‌اید را Review کنند و بر اساس لیست Code Smellها به شما بازخورد بدهند (روی Pull Request کامنت بگذارند)، در این مرحله حتما از تیم‌های دیگر هم سراغ شما می‌آیند و می‌خواهند کدشان را Review کنید، قبل از Review کد دیگران، راهنماهای زیر را مطالعه کنید و Review خود را بر اساس این راهنماها انجام دهید:
@@ -120,5 +120,5 @@ description: ''
 
 ## مطالعه بیشتر:
 
-در این فاز تلاش کردیم تا با اصلی‌ترین اصول کد‌نویسی تمیز آشنا شویم، اما طبیعی است، جزییات و نکات بسیار زیادی در این زمینه وجود دارد، به طوریکه کتاب معروف [clean code](https://github.com/JuanCrg90/Clean-Code-Notes)، به همین منظور نوشته شده است. پیشنهاد می‌شود برای یادگیری بیشتر، خلاصه کتاب clean code را مطالعه کنید. 
+در این فاز تلاش کردیم تا با اصلی‌ترین اصول کد‌نویسی تمیز آشنا شویم، اما طبیعی است، جزییات و نکات بسیار زیادی در این زمینه وجود دارد، به طوریکه کتاب معروف [clean code](https://dl.ebooksworld.ir/books/Clean.Code.A.Handbook.of.Agile.Software.Craftsmanship.by.Robert.C.Martin-Pearson-9780132350884-EBooksWorld.ir.rar)، به همین منظور نوشته شده است. پیشنهاد می‌شود برای یادگیری بیشتر، خلاصه کتاب [clean code](https://github.com/JuanCrg90/Clean-Code-Notes) را مطالعه کنید. 
 
