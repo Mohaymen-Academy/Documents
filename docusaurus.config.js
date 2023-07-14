@@ -60,7 +60,7 @@ const config = {
                 title: 'آکادمی مهیمن',
                 logo: {
                     alt: 'لوگو آکادمی مهیمن',
-                    src: 'images/logo.svg',
+                    src: 'images/Logo.svg',
                 },
                 items: [
                     {
