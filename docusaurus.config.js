@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    title: 'آکادمی ستاره',
+    title: 'آکادمی مهیمن',
     staticDirectories: ['public', 'static'],
     tagline: 'بزن بریم!',
     url: 'https://mohaymen-academy.github.io/',
