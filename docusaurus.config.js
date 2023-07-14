@@ -41,7 +41,7 @@ const config = {
             ({
                 docs: {
                     sidebarPath: require.resolve('./sidebars.js'),
-                    editUrl: 'https://github.com/Star-Academy/codestar-documents/tree/master/',
+                    editUrl: 'https://github.com/Mohaymen-Academy/Documents/tree/main/',
                 },
                 blog: {
                     showReadingTime: true,
