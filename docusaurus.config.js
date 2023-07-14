@@ -122,10 +122,11 @@ const config = {
                             //     label: 'عمومی',
                             //     to: '/docs/general',
                             // },
-                            // {
-                            //     label: 'پروژه',
-                            //     to: '/docs/project',
-                            // },
+                    {
+                        href: 'https://github.com/Mohaymen-Academy/',
+                        label: 'GitHub',
+                        position: 'right',
+                    },
                         ],
                     },
                     {
@@ -135,10 +136,10 @@ const config = {
                                 label: 'GitHub',
                                 href: 'https://github.com/Mohaymen-Academy/',
                             },
-                            // {
-                            //     label: 'Aparat',
-                            //     href: 'https://www.aparat.com/Code_star/',
-                            // },
+                            {
+                                label: 'Board',
+                                href: 'https://docs.google.com/spreadsheets/d/1wV-_GX8N3G6THq_pg9brjYr8zrdgU5LxH3iMGHlapHk/edit#gid=0',
+                            },
                         ],
                     },
                 ],
