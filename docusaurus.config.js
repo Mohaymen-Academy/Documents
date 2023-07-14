@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    title: 'آکادمی ستاره',
+    title: 'آکادمی مهیمن',
     staticDirectories: ['public', 'static'],
     tagline: 'بزن بریم!',
     url: 'https://mohaymen-academy.github.io/',
@@ -17,8 +17,8 @@ const config = {
 
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
-    organizationName: 'Star-Academy', // Usually your GitHub org/user name.
-    projectName: 'codestar-documents', // Usually your repo name.
+    organizationName: 'Mohaymen-Academy', // Usually your GitHub org/user name.
+    projectName: 'Documents', // Usually your repo name.
 
     // Even if you don't use internalization, you can use this field to set useful
     // metadata like html lang. For example, if your site is Chinese, you may want
@@ -41,7 +41,7 @@ const config = {
             ({
                 docs: {
                     sidebarPath: require.resolve('./sidebars.js'),
-                    editUrl: 'https://github.com/Star-Academy/codestar-documents/tree/master/',
+                    editUrl: 'https://github.com/Mohaymen-Academy/Documents/tree/main/',
                 },
                 blog: {
                     showReadingTime: true,
@@ -57,10 +57,10 @@ const config = {
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
             navbar: {
-                title: 'آکادمی ستاره',
+                title: 'آکادمی مهیمن',
                 logo: {
-                    alt: 'لوگو آکادمی ستاره',
-                    src: 'images/logo.svg',
+                    alt: 'لوگو آکادمی مهیمن',
+                    src: 'images/Logo.svg',
                 },
                 items: [
                     {
@@ -81,18 +81,18 @@ const config = {
                         position: 'left',
                         label: 'مهندسی نرم‌افزار',
                     },
-                    {
-                        type: 'doc',
-                        docId: 'general',
-                        position: 'left',
-                        label: 'عمومی',
-                    },
-                    {
-                        type: 'doc',
-                        docId: 'project',
-                        position: 'left',
-                        label: 'پروژه',
-                    },
+                    // {
+                    //     type: 'doc',
+                    //     docId: 'general',
+                    //     position: 'left',
+                    //     label: 'عمومی',
+                    // },
+                    // {
+                    //     type: 'doc',
+                    //     docId: 'project',
+                    //     position: 'left',
+                    //     label: 'پروژه',
+                    // },
                     {
                         href: 'https://github.com/Mohaymen-Academy/',
                         label: 'GitHub',
@@ -118,14 +118,14 @@ const config = {
                                 label: 'مهندسی نرم‌افزار',
                                 to: '/docs/software-engineering',
                             },
-                            {
-                                label: 'عمومی',
-                                to: '/docs/general',
-                            },
-                            {
-                                label: 'پروژه',
-                                to: '/docs/project',
-                            },
+                            // {
+                            //     label: 'عمومی',
+                            //     to: '/docs/general',
+                            // },
+                            // {
+                            //     label: 'پروژه',
+                            //     to: '/docs/project',
+                            // },
                         ],
                     },
                     {
@@ -142,7 +142,7 @@ const config = {
                         ],
                     },
                 ],
-                copyright: 'تمامی حقوق مادی و معنوی این سایت متعلق به آکادمی ستاره می‌باشد.',
+                copyright: 'تمامی حقوق مادی و معنوی این سایت متعلق به آکادمی مهیمن می‌باشد.',
             },
             prism: {
                 theme: lightCodeTheme,
