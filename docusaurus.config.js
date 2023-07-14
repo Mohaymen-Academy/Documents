@@ -57,9 +57,9 @@ const config = {
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
             navbar: {
-                title: 'آکادمی ستاره',
+                title: 'آکادمی مهیمن',
                 logo: {
-                    alt: 'لوگو آکادمی ستاره',
+                    alt: 'لوگو آکادمی مهیمن',
                     src: 'images/logo.svg',
                 },
                 items: [
@@ -81,18 +81,18 @@ const config = {
                         position: 'left',
                         label: 'مهندسی نرم‌افزار',
                     },
-                    {
-                        type: 'doc',
-                        docId: 'general',
-                        position: 'left',
-                        label: 'عمومی',
-                    },
-                    {
-                        type: 'doc',
-                        docId: 'project',
-                        position: 'left',
-                        label: 'پروژه',
-                    },
+                    // {
+                    //     type: 'doc',
+                    //     docId: 'general',
+                    //     position: 'left',
+                    //     label: 'عمومی',
+                    // },
+                    // {
+                    //     type: 'doc',
+                    //     docId: 'project',
+                    //     position: 'left',
+                    //     label: 'پروژه',
+                    // },
                     {
                         href: 'https://github.com/Mohaymen-Academy/',
                         label: 'GitHub',
@@ -118,14 +118,14 @@ const config = {
                                 label: 'مهندسی نرم‌افزار',
                                 to: '/docs/software-engineering',
                             },
-                            {
-                                label: 'عمومی',
-                                to: '/docs/general',
-                            },
-                            {
-                                label: 'پروژه',
-                                to: '/docs/project',
-                            },
+                            // {
+                            //     label: 'عمومی',
+                            //     to: '/docs/general',
+                            // },
+                            // {
+                            //     label: 'پروژه',
+                            //     to: '/docs/project',
+                            // },
                         ],
                     },
                     {
@@ -142,7 +142,7 @@ const config = {
                         ],
                     },
                 ],
-                copyright: 'تمامی حقوق مادی و معنوی این سایت متعلق به آکادمی ستاره می‌باشد.',
+                copyright: 'تمامی حقوق مادی و معنوی این سایت متعلق به آکادمی مهیمن می‌باشد.',
             },
             prism: {
                 theme: lightCodeTheme,
