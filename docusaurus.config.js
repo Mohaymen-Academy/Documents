@@ -122,11 +122,6 @@ const config = {
                             //     label: 'عمومی',
                             //     to: '/docs/general',
                             // },
-                    {
-                        href: 'https://github.com/Mohaymen-Academy/',
-                        label: 'GitHub',
-                        position: 'right',
-                    },
                         ],
                     },
                     {

@@ -3,7 +3,7 @@ title: Meetings
 description: ''
 ---
 
-![Journey begins](./images/meeting.jpeg)
+![Journey begins](./images/meeting-min.jpeg)
 
 # انواع جلسات توی بوت‌کمپ
 
