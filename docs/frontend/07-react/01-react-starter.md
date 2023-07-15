@@ -29,7 +29,7 @@ description: Starting with React
 برای ساخت اولین پروژه ریکت بعد از نصب nodejs روی سیستم میتونیم دستورات زیر را اجرا کنیم تا پروژه ی ریکتیمون ایجاد بشه
 
 ```bash
-npx create-07-react-app myApp
+npx create-react-app myApp
 ```
 
 حالا نوبت به اجرای برنامه ریکتی که ساختیم میشه برای اجراش دستور زیر را میزنیم
