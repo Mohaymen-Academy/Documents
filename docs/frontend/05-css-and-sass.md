@@ -489,18 +489,7 @@ $padding--large: 4rem;
 برای درجِ مقدار `n` استفاده کردیم
 که به آن Interpolation گفته می‌شود.
 
----
 
-## پروژه
-
-سعی کنید از قابلیت‌های SCSS به نفع خود استفاده کنید؛
-با استفاده از Nesting خوانایی کد را افزایش و
-با استفاده از Mixin حجم آن را کاهش دهید.
-
-Sass
-قابلیت‌های بی‌شماری دارد؛
-اما زیاده‌روی نکنید!
-فقط از قابلیت‌هایی استفاده کنید که واقعاً به آن‌ها نیاز دارید.
 
 ---
 ## پروژه
@@ -509,4 +498,13 @@ Sass
 
 ادرس ویترین :
 
-[https://vitrin.splus.ir/](https://vitrin.splus.ir/) 
+[https://vitrin.splus.ir/](https://vitrin.splus.ir/)
+
+
+---
+## پروژه
+
+ساخت صفحه ساز بر اساس sass از روی طرح 
+
+[لینک طرح ها
+](https://www.figma.com/file/xythpprwklwrikNzTNL3Az/page-builder?type=design&node-id=0%3A1&mode=design&t=T92Jcy80F8SPxMEe-1)
