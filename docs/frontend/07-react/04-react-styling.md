@@ -90,7 +90,7 @@ export default Header;
 ```javascript
 /* src/components/Header.js */
 
-import './Header.module.css'
+import styles from './Header.module.css'
 
 function Header() {
     return (
