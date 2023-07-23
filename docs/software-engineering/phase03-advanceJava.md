@@ -92,7 +92,7 @@ description: 'getting familiar with advance topics in software engineering and a
 فرض کنید می‌خواهیم در لیست زیر، نام افرادی که نامشان با a (بدون حساسیت به بزرگ‌ یا کوچک بودن حروف) شروع می‌شود را به صورت مرتب شده در خروجی چاپ کنیم:
 
 ```java
-List myList = Arrays.asList( "Ashkboos aval", “arash kamangir”, “Ashkboos panjom”, “ario Barzan”, “Leily”, "Majnoon", "bahram Goooor", "Amene");
+List myList = Arrays.asList( "Ashkboos aval", "arash kamangir", "Ashkboos panjom", "ario Barzan", "Leily", "Majnoon", "bahram Goooor", "Amene");
 ```
 
 احتمالا برای این کار از حلقه استفاده می‌کنیم. روی هر المان حرکت می‌کنیم، آن را به صورت lowercase یا uppercase در می‌آوریم، شروع‌شدنش با a (یا A) را چک می‌کنیم و اگر شرط برقرار بود آن را در لیست دیگری که تعریف کرده‌ایم قرار می‌دهیم. در نهایت هم sort اش می‌کنیم: (تقریبا سودوکد این فرایند به صورت زیر می‌شود)
