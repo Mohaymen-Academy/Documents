@@ -225,3 +225,8 @@ http::localhost:3001/users
 - [Json Server Doc](https://github.com/typicode/json-server)
 
 :::
+
+---
+## پروژه
+
+پویا سازی پروژه ویترین و صفحه ساز و دریافت اطلاعات انها از سرور

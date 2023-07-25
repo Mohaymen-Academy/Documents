@@ -63,4 +63,4 @@ export default function App() {
 ---
 ## پروژه
 
-استفاده از tailwind در پروژه TODO
+استفاده از tailwind در پروژه ویترین و صفحه ساز
