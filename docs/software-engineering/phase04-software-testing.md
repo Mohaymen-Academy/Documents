@@ -14,8 +14,6 @@ description: 'a brief look into software testing ...'
 
 ## مفهوم Unit Test و اهمیت آن
 
-![](./images/phase04-Top-Reasons-To-Unit-Test.png)
-
 برای آگاهی از اهمیت نوشتن Unit Test
 در فرایند توسعه نرم‌افزار، لینک‌های زیر را مطالعه کنید:
 
@@ -23,6 +21,9 @@ description: 'a brief look into software testing ...'
 -   [Why Is Unit Testing Important in Software Development?](https://performancelabus.com/unit-testing-importance/)
 -   [The importance of Unit Testing](https://fortegrp.com/the-importance-of-unit-testing/)
 -   [Time difference between developing with unit tests vs no tests](https://softwareengineering.stackexchange.com/questions/322256/time-difference-between-developing-with-unit-tests-vs-no-tests)
+
+
+![](./images/phase04-Top-Reasons-To-Unit-Test.png)
 
 ## مفهوم Code Coverage در Unit Testing و اهمیت آن
 
@@ -36,10 +37,9 @@ description: 'a brief look into software testing ...'
 
 ## نوشتن Unit Test در java با استفاده از jUnit
 
-برای شروع کار با jUnit پیشنهاد می‌شود [Getting Started with jUnit Code](https://riptutorial.com/junit)
-و [Getting Started with xUnit.net](https://xunit.net/docs/getting-started/netfx/visual-studio) را مطالعه کنید. همچنین می‌توانید نحوۀ مشاهدۀ Code Coverage
-را در intelliJ Idea از طریق این لینک ببینید.
-https://www.jetbrains.com/help/idea/running-test-with-coverage.html
+برای شروع کار با jUnit پیشنهاد می‌شود [Getting Started with jUnit Code](https://riptutorial.com/junit) را مطالعه کنید. همچنین می‌توانید نحوۀ مشاهدۀ Code Coverage
+را در intelliJ Idea از طریق [این لینک](https://www.jetbrains.com/help/idea/running-test-with-coverage.html) ببینید.
+
 
 ## تاثیر اصول SOLID بر Unit Testing
 
