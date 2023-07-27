@@ -1,6 +1,6 @@
 ---
 title: Re-renders
-description: rendering details and optimization
+description: rendering details
 ---
 
 ![](../images/rerender.png)
