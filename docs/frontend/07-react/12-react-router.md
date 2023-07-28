@@ -1,5 +1,5 @@
 ---
-title: React Router DOM
+title: React Router
 description: React Router Dom Package
 ---
 
@@ -145,3 +145,84 @@ export default App;
 
 با حذف path صفحه HomePage و اضافه کردن index بهش به روتر مفهمونیم که این صفحه روت هست و باید element که داخل اون تعریف شده باز بشه.
 
+:::tip 
+ با مقداری دهی path با *  میتونیم صفحه 404 را بسازیم زمانی که کاربر url ی را صدا کند که تعریف نشده این کامپوننت اجرا میشود.    
+::::
+
+
+##  محتوای مشترک در صفحه ها
+
+### مقدمه 
+حالا که میتونیم با استفاده از url صفحات را صدا بزنیم مشکلی که برای پیش میاید این هست که هدر سایت ما باید در تمامی صفحات تکرار بشه یا فووتر یا سایدبار خب این مطلب اصلا خوشایند نیست مخصوصا زمانی که بخواهیم تغییری ایجاد کنیم.
+
+ریکت برای این موضوع هم به کمکمون امده و برای ما لایه ها را ایجاد کرده تا ما موارد تکراری صفحه ها از خود صفحه جدا تعریف کنیم.
+
+### ساخت لایه 
+ 
+برای اینکه ما بتونیم لایه مشترک بین صفحات بسازیم باید ابتدا یک کامپوننت بسازیم که لایه مشترک ما را نگهداری کند به مثال زیر دقت کنید:
+
+
+
+
+```javascript
+import { Link, Outlet } from "react-router-dom";
+
+const Layout = () => {
+    return (
+        <div >
+            <nav>
+                <ul>
+                    <li><Link to={'/'}>Home</Link></li>
+                    <li><Link to={'/About'}>About</Link></li>
+                </ul>
+            </nav>
+            <div>
+                <Outlet />
+            </div>
+
+        </div>
+    );
+}
+
+export default Layout;
+```
+
+:::caution نکته
+دقت داشته باشید Outlet برای ما فضای جایگذاری محتوا را مشخص میکند.(در واقع زمانی که یک روت زیر مجموعه داریم محتوای کامپونتت ها با Outlet جایگذاری میشود).
+:::
+
+
+حالا که لایه مشکرت صفحات خود را ساختیم وقت ان رسیده که به بقیه صفحات اعلام کنیم این کامپوننت مشترک است.
+
+```javascript
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Layout from "./pages/layout";
+import HomePage from "./pages/home-page";
+import AboutPage from "./pages/about-page";
+
+function App() {
+  return (
+    <div >
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+              <Route index element={<HomePage  />}/>
+              <Route path="/about" element={<AboutPage  />}/>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
+}
+
+export default App;
+```
+
+:::caution نکته
+با زیر مجموعه کردن تمامی روت ها در layout تمامی محتوای صفحات در outlet جایگذاری میشوند.
+:::
+
+---
+## پروژه
+
+لینک سازی در ویترین و صفحه ساز و ساخت لایه بندی
