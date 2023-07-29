@@ -39,7 +39,7 @@ description: How to containerized applications with docker
  
 ### کانفیگ Nginx:
 نمونه کانفیگ nginx در ادامه ارائه گردیده است:
-‍‍‍```
+‍‍‍```default.conf
 upstream client{
   server client:5173;
 }
