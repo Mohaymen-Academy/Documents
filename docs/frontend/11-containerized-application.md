@@ -35,9 +35,12 @@ description: How to containerized applications with docker
 برای dockerize کردن یک اپلیکیشن React به همراه Nginx، می‌توان مراحل زیر را دنبال کرد:
 
 ### ساخت اپلیکیشن React:
+ می‌توان از`Vite` یا هر ابزار دیگری برای ساخت یک اپلیکیشن React استفاده کرد. در این آموزش از ابزار vite برای ساخت اپلیکیشن استفاده شده است. اما ابزار‌های دیگر نیز تفاوت خاصی ندارند.
+ 
+### کانفیگ Nginx:
 می‌توان از`Vite` یا هر ابزار دیگری برای ساخت یک اپلیکیشن React استفاده کرد. در این آموزش از ابزار vite برای ساخت اپلیکیشن استفاده شده است. اما ابزار‌های دیگر نیز تفاوت خاصی ندارند.
 
-### نصب Nginx در Docker Image:
+### ایجاد Dockerfile:
 در Dockerfile مراحل زیر را دنیال می‌کنیم:  
   ##### 1- از بیس ایمیج (Base Image) node برای Containerize کردن اپلیکیشن React استفاده کنید. همچنین برای این کانتیر باید نام مشخصی تعریف کنیم که در مراحل         بعدی از این نام برای کپی کردن فایل‌‌های مورد نیاز استفاده خواهد شد.  
   ##### 2- ورک دایرکتوری را در محل دلخواهی از کانتینر تغریف می‌کنیم.  
@@ -45,49 +48,27 @@ description: How to containerized applications with docker
   ##### 3- دستور `npm install` برای نصب پکیج‌ها و دستور `npm run build` را برای ساخت نسخه پروداکشن اپلیکیشن در داکرفایل قرار می‌دهیم.  
   ##### 4- از یک بیس ایمیج جدید برای ساخت کانتینر nginx استفاده میکنیم.  
   ##### 5- در nginx به صورت پیشفرض فایل‌های HTML استاتیک از آدرس usr/share/nginx/html/ خوانده می‌شوند در نتیجه فایل‌های بیلد شده از کانتینر قبلی را در این           آدرس در کانتیر جدید منتقل می‌کنیم.  
-  ##### 6- برای کپی از کانتینر قبلی باید از نام تعریف شده در مرحله قبل و دستور `COPY --from="previus image name "src" "dest` استفاده کنیم.  
+  ##### 6- برای کپی از کانتینر قبلی باید از نام تعریف شده در مرحله قبل و دستور `COPY --from="previus image name "src" "dest` استفاده کنیم. 
+  ##### 7- در صورت وجود کانیفیگ برای nginx فایل را در محل `/etc/nginx/conf.d/` در کانتینر با دستور COPY انتقال می‌دهیم.
   ##### 8- پورت دیفالت nginx به صورت پیشفرض ۸۰ می‌باشد.
+  
+  در زیر Dockerfile مربوط به مراحل بالا ارائه شده است:
   
 
 ```Dockerfile
-
 FROM node:latest as build
-
 WORKDIR /app
-
 COPY . .
-
 RUN npm install
 RUN npm run build
 
 FROM nginx:alpine
-
 COPY --from=build /app/build /usr/share/nginx/html
-
-COPY nginx/nginx.conf /etc/nginx/nginx.conf
-
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
 ```
 
-3. بررسی Docker Image:
-با دستور زیر در همان پوشه‌ای که Dockerfile قرار دارد، Docker image را بسازید:
 
-```bash
-docker build -t نام-تصویر-شما .
-```
-
-4. اجرای Docker Container:
-پس از ساخت Docker image، می‌توانید اپلیکیشن را با استفاده از دستور زیر اجرا کنید:
-
-```bash
-docker run -p 80:80 نام-تصویر-شما
-```
-
-حالا اپلیکیشن React با Nginx درون یک Docker container اجرا می‌شود و شما می‌توانید با مراجعه به `http://localhost` از آن استفاده کنید.
-
-فایل Dockerfile ارائه شده بالا نمونه‌ای از چگونگی dockerize کردن اپلیکیشن React با Nginx است. بسته به نیازهای خاص شما، ممکن است نیاز به تغییرات داشته باشد. علاوه بر این، اگر یک تنظیمات Nginx سفارشی دارید، می‌توانید آن را با استفاده از دستور `COPY` به container کپی کنید (خط مربوطه در Dockerfile را فعال کنید) و تنظیمات مورد نیاز را اعمال کنید.
 
 
 ## پروژه
