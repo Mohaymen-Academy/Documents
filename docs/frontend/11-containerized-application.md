@@ -32,6 +32,58 @@ description: How to containerized applications with docker
 
 ---
 ## داکرایز کردن یک پروژه React به همراه Nginx
+بله، مسئله‌ای نیست. برای dockerize کردن یک اپلیکیشن React به همراه Nginx، مراحل زیر را دنبال کنید:
+
+1. ساخت اپلیکیشن React:
+اگر هنوز اپلیکیشن React خود را ساخته ندارید، می‌توانید از `create-react-app` یا هر روش دیگری که ترجیح دارید، یک اپلیکیشن React ایجاد کنید.
+
+2. نصب Nginx در Docker Image:
+در فایل Dockerfile، شما باید از یک Docker image با Node.js برای ساخت اپلیکیشن React استفاده کنید و سپس Nginx را برای ارائه آن نصب کنید. در زیر یک مثال از Dockerfile آمده است:
+
+```Dockerfile
+# مرحله 1: ساخت اپلیکیشن React
+FROM node:latest AS build
+
+WORKDIR /app
+COPY . .
+RUN yarn install
+RUN yarn build
+
+# مرحله 2: ارائه اپلیکیشن React با استفاده از Nginx
+FROM nginx:alpine
+
+# حذف وب‌سایت پیش‌فرض Nginx
+RUN rm -rf /usr/share/nginx/html/*
+
+# کپی فایل‌های ساخت شده اپلیکیشن React به پوشه public Nginx
+COPY --from=build /app/build /usr/share/nginx/html
+
+# کپی فایل تنظیمات Nginx (اختیاری)
+# COPY nginx/nginx.conf /etc/nginx/nginx.conf
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
+```
+
+3. بررسی Docker Image:
+با دستور زیر در همان پوشه‌ای که Dockerfile قرار دارد، Docker image را بسازید:
+
+```bash
+docker build -t نام-تصویر-شما .
+```
+
+4. اجرای Docker Container:
+پس از ساخت Docker image، می‌توانید اپلیکیشن را با استفاده از دستور زیر اجرا کنید:
+
+```bash
+docker run -p 80:80 نام-تصویر-شما
+```
+
+حالا اپلیکیشن React با Nginx درون یک Docker container اجرا می‌شود و شما می‌توانید با مراجعه به `http://localhost` از آن استفاده کنید.
+
+فایل Dockerfile ارائه شده بالا نمونه‌ای از چگونگی dockerize کردن اپلیکیشن React با Nginx است. بسته به نیازهای خاص شما، ممکن است نیاز به تغییرات داشته باشد. علاوه بر این، اگر یک تنظیمات Nginx سفارشی دارید، می‌توانید آن را با استفاده از دستور `COPY` به container کپی کنید (خط مربوطه در Dockerfile را فعال کنید) و تنظیمات مورد نیاز را اعمال کنید.
+
 
 ## پروژه
 
