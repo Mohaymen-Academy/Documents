@@ -45,28 +45,26 @@ description: How to containerized applications with docker
   ##### 3- دستور `npm install` برای نصب پکیج‌ها و دستور `npm run build` را برای ساخت نسخه پروداکشن اپلیکیشن در داکرفایل قرار می‌دهیم.  
   ##### 4- از یک بیس ایمیج جدید برای ساخت کانتینر nginx استفاده میکنیم.  
   ##### 5- در nginx به صورت پیشفرض فایل‌های HTML استاتیک از آدرس usr/share/nginx/html/ خوانده می‌شوند در نتیجه فایل‌های بیلد شده از کانتینر قبلی را در این           آدرس در کانتیر جدید منتقل می‌کنیم.  
-  ##### 6- برای کپی از کانتینر قبلی باید از نام تعریف شده در مرحله قبل و دستور `COPY --from="previus image name "src" "dest` استفاده می‌کنیم.  
+  ##### 6- برای کپی از کانتینر قبلی باید از نام تعریف شده در مرحله قبل و دستور `COPY --from="previus image name "src" "dest` استفاده کنیم.  
+  ##### 8- پورت دیفالت nginx به صورت پیشفرض ۸۰ می‌باشد.
+  
 
 ```Dockerfile
-# مرحله 1: ساخت اپلیکیشن React
+
 FROM node:latest as build
 
 WORKDIR /app
-COPY . .
-RUN yarn install
-RUN yarn build
 
-# مرحله 2: ارائه اپلیکیشن React با استفاده از Nginx
+COPY . .
+
+RUN npm install
+RUN npm run build
+
 FROM nginx:alpine
 
-# حذف وب‌سایت پیش‌فرض Nginx
-RUN rm -rf /usr/share/nginx/html/*
-
-# کپی فایل‌های ساخت شده اپلیکیشن React به پوشه public Nginx
 COPY --from=build /app/build /usr/share/nginx/html
 
-# کپی فایل تنظیمات Nginx (اختیاری)
-# COPY nginx/nginx.conf /etc/nginx/nginx.conf
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 
