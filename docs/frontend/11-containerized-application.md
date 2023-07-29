@@ -39,11 +39,10 @@ description: How to containerized applications with docker
  
 ### کانفیگ Nginx:
 نمونه کانفیگ nginx در ادامه ارائه گردیده است:
-‍‍‍```default.conf
+```Dockerfile
 upstream client{
   server client:5173;
 }
-
 server {
   listen 80; #define a port (80 if not presented)
   location / {
