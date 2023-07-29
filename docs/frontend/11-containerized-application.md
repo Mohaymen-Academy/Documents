@@ -38,7 +38,23 @@ description: How to containerized applications with docker
  می‌توان از`Vite` یا هر ابزار دیگری برای ساخت یک اپلیکیشن React استفاده کرد. در این آموزش از ابزار vite برای ساخت اپلیکیشن استفاده شده است. اما ابزار‌های دیگر نیز تفاوت خاصی ندارند.
  
 ### کانفیگ Nginx:
-می‌توان از`Vite` یا هر ابزار دیگری برای ساخت یک اپلیکیشن React استفاده کرد. در این آموزش از ابزار vite برای ساخت اپلیکیشن استفاده شده است. اما ابزار‌های دیگر نیز تفاوت خاصی ندارند.
+نمونه کانفیگ nginx در ادامه ارائه گردیده است:
+‍‍‍```
+upstream client{
+  server client:5173;
+}
+
+server {
+  listen 80; #define a port (80 if not presented)
+  location / {
+    proxy_pass http://localhost:5173;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "Upgrade";
+  }
+}
+```
+فایل کانفیگ در پوشه nginx به نام default.conf قرار داده می‌شود.
 
 ### ایجاد Dockerfile:
 در Dockerfile مراحل زیر را دنیال می‌کنیم:  
@@ -67,6 +83,8 @@ COPY --from=build /app/build /usr/share/nginx/html
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 ```
+
+## ساخت Image
 
 
 
