@@ -31,6 +31,7 @@ description: How to containerized applications with docker
 -   [Medium - How to Dockerized react app](https://medium.com/swlh/dockerizing-your-reactjs-application-c59109e97861)
 
 ---
+## داکرایز کردن یک پروژه React به همراه Nginx
 
 ## پروژه
 
