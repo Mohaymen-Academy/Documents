@@ -47,19 +47,66 @@ my-react-app/
 ```
 ### ایجاد Dockerfile.dev برای react app 
 در پوشه Client فایل‌های مربوط به react قرار داده شده است. در این پوشه فایل Dockerfile.dev را ایجاد کرده و دستورات زیر را در آن قرار دهید:
-```structure
-Dockerfile.dev
+```Dockerfile.dev
 FROM node:18-alpine
 WORKDIR /app
 COPY ./package.json ./
 RUN npm i
-COPY . .
+COPY . . 
 CMD ["npm", "run", "dev"]
 ```
+### ایجاد فایل default.conf برای nginx:
+```deafult.conf
+upstream client{
+  server client:5173;
+}
+server{
+  listen 80;
+  location / {
+    proxy_pass http://client;
+    root /usr/share/nginx/html;
+    index index.html index.htm;
+    try_files $uri $uri/ /index.html =404;
+  }
+}
+```
+
+### ایجاد Dockerfile.dev برای nginx 
+در پوشه nginx فایل Dockerfile.dev را ایجاد کرده و دستورات زیر را در آن قرار دهید:
+```Dockerfile.dev
+FROM nginx
+COPY ./deafult.conf /etc/nginx/conf.d/deafult.conf
+RUN npm i
+COPY . . 
+CMD ["npm", "run", "dev"]
+```
+### ایجاد فایل docker-compose.yml:
+```docker-compose.yml
+version: "3.8"
+services:
+  client:
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+   nginx:
+     depends_on:
+       - client
+     restart: always
+     build:
+       context: ./nginx
+       dockerfile: Dockerfile.dev
+     ports:
+       - 80:80
+```
+توجه کنید در فایل داکر کوپوز indent ها مهم هستند.
 
 
 ## محیط Production:
-برای dockerize کردن یک اپلیکیشن React به همراه Nginx در محیط Production، می‌توان مراحل زیر را دنبال کرد:
+برای dockerize کردن یک اپلیکیشن React به همراه Nginx در محیط Production، می‌توان مراحل زیر را دنبال کرد
 
 ### ساخت اپلیکیشن React:
  می‌توان از`Vite` یا هر ابزار دیگری برای ساخت یک اپلیکیشن React استفاده کرد. در این آموزش از ابزار vite برای ساخت اپلیکیشن استفاده شده است. اما ابزار‌های دیگر نیز تفاوت خاصی ندارند. ممکن است پوشه‌ای که فایل‌‌های build شده در آن قرار می‌گیرند در ابزار‌های دیگر به جای dist به نام build ایجاد شوند. در این صورت باید dockerfile براساس این نکته اصلاح شوند.
