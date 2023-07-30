@@ -83,13 +83,13 @@ EXPOSE 80
 ```docker-compose.yml
 version: "3"
 services:
- nginx-react:
- container_name: ngixreactapp
- build:
-  context: .
-  dockerfile: Dockerfile
- ports:
-  - 80:80
+  nginx-react:
+  container_name: ngixreactapp
+  build:
+   context: .
+   dockerfile: Dockerfile
+  ports:
+   - 80:80
 ```
 توجه کنید در فایل داکر کوپوز indent ها مهم هستند.
 در دستورات بالا محل قرارگیری dockerfile با دستور context و نام آن مشخض و پورت 80 کامیپوتر به پورت 80 کانتینر map شده است.  
