@@ -2,11 +2,8 @@
 title: Containerized Applications
 description: How to containerized applications with docker
 ---
-
 ![docker](https://www.docker.com/wp-content/uploads/2021/09/Docker-build.png)
-
 # مقدمه
-
 زمانی که با تیم های بزرگ شروع به کار میکنیم زیر ساخت انها بر اساس [docker compose ](https://docs.docker.com/compose/)- [docker swarm](https://docs.docker.com/engine/swarm/) - [kubernetes](https://kubernetes.io/) پیاده سازی شده است.
 در نتیجه ما به عنوان برنامه نویس فرانت باید بتوانیم فایل های پروژه خود را در درون این نوع زیر ساخت متنشر کنیم.
 از این جهت ما باید بتوانیم داکر فایل اپلیکیشن خود را نوشته و ان را تحویل مدیر devops بدهیم تا ان را در درون فرایند CI/CD قرار داده و مکانیزم اتوماتیک انتشار نسخه را داشته باشیم.
