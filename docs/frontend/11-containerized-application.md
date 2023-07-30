@@ -3,7 +3,7 @@ title: Containerized Applications
 description: How to containerized applications with docker
 ---
 
-![Example Image](https://www.docker.com/wp-content/uploads/2021/09/Docker-build.png)
+![docker](https://www.docker.com/wp-content/uploads/2021/09/Docker-build.png)
 
 # مقدمه
 
@@ -33,9 +33,8 @@ description: How to containerized applications with docker
 -   [Medium - How to Dockerized react app](https://medium.com/swlh/dockerizing-your-reactjs-application-c59109e97861)
 
 ---
-![Example Image](https://cdn.hashnode.com/res/hashnode/image/upload/v1626523128594/ojGizihP0q.png?auto=compress,format&format=webp)
 # داکرایز کردن یک پروژه React به همراه Nginx
-
+![dokerNginx](https://cdn.hashnode.com/res/hashnode/image/upload/v1626523128594/ojGizihP0q.png?auto=compress,format&format=webp)
 ## محیط Development:
 برای dockerize کردن یک اپلیکیشن React به همراه Nginx در محیط Development، می‌توان مراحل زیر را دنبال کرد:
 ### ساختار پوشه‌بندی اپلیکیشن
@@ -117,7 +116,7 @@ services:
 
 ## محیط Production:
 برای dockerize کردن یک اپلیکیشن React به همراه Nginx در محیط Production، می‌توان مراحل زیر را دنبال کرد
-![Example Image](https://miro.medium.com/v2/resize:fit:1400/1*Ydxg0X39m3VDA9c01KFffQ.png)
+![produnctionReact](https://miro.medium.com/v2/resize:fit:1400/1*Ydxg0X39m3VDA9c01KFffQ.png)
 
 ### ساخت اپلیکیشن React:
  می‌توان از`Vite` یا هر ابزار دیگری برای ساخت یک اپلیکیشن React استفاده کرد. در این آموزش از ابزار vite برای ساخت اپلیکیشن استفاده شده است. اما ابزار‌های دیگر نیز تفاوت خاصی ندارند. ممکن است پوشه‌ای که فایل‌‌های build شده در آن قرار می‌گیرند در ابزار‌های دیگر به جای dist به نام build ایجاد شوند. در این صورت باید dockerfile براساس این نکته اصلاح شوند.
