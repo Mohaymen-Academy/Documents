@@ -307,16 +307,6 @@ Venn
 راحت‌تر است. پس شکل زیر را به دقت بررسی کنید.
 ![SQLJoins](./images/phase06-sql-join.svg)
 
-حال نمونه‌ی هر
-Join
-را در دستورات زیر مشاهده می‌کنید. مقادیر اولیه جدول
-Enrollment (Child)
-و
-Student (Parent)
-نیز در ابتدا نشان داده شده است.
-
-![SQLJoin Primary Tables](./images/phase07-join-example-primary-tables.png)
-
 ## تابع‌ها
 
 :::info
