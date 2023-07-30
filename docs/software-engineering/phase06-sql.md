@@ -1,6 +1,6 @@
 ---
 title: SQL
-description: ''
+description: 'data is the power'
 ---
 
 
@@ -305,7 +305,7 @@ Join
 وجود دارد که مشاهده عملکرد هر یک از آن‌ها در نمودار
 Venn
 راحت‌تر است. پس شکل زیر را به دقت بررسی کنید.
-![SQLJoins](./images/phase07-SQL-joins.png)
+![SQLJoins](./images/phase06-sql-join.svg)
 
 حال نمونه‌ی هر
 Join
