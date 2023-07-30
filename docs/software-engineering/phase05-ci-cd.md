@@ -19,7 +19,7 @@ description: 'Just push it!'
 - [What is CI/CD?(redhat)](https://www.redhat.com/en/topics/devops/what-is-ci-cd)
 - [The Journey to CI/CD](https://medium.com/driven-by-code/the-journey-to-ci-cd-b1872927c36b)
 
-## آشنایی با GitHub Actions و اضافه کردن CI/CD Pipeline به Repository
+## GitHub Actions
 
 یکی از ابزارهای CI/CD معروف، GitHub Actions است که به کمک آن، می‌توانیم یک Pipeline شامل عملیات build، اجرای unit testها، انتشار package و دیگر عملیاتی که در دستهٔ CI/CD می‌گنجد را به Repository خود اضافه کنیم.
 برای آشنایی و ساخت یک نمونه pipeline، [این مستند](https://docs.github.com/en/actions/quickstart) را مطالعه کنید.
