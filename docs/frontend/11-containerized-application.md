@@ -3,6 +3,8 @@ title: Containerized Applications
 description: How to containerized applications with docker
 ---
 
+![Example Image](https://www.docker.com/wp-content/uploads/2021/09/Docker-build.png)
+
 # مقدمه
 
 زمانی که با تیم های بزرگ شروع به کار میکنیم زیر ساخت انها بر اساس [docker compose ](https://docs.docker.com/compose/)- [docker swarm](https://docs.docker.com/engine/swarm/) - [kubernetes](https://kubernetes.io/) پیاده سازی شده است.
@@ -31,8 +33,7 @@ description: How to containerized applications with docker
 -   [Medium - How to Dockerized react app](https://medium.com/swlh/dockerizing-your-reactjs-application-c59109e97861)
 
 ---
-
-![Example Image](https://www.docker.com/wp-content/uploads/2021/09/Docker-build.png)
+![Example Image](https://cdn.hashnode.com/res/hashnode/image/upload/v1626523128594/ojGizihP0q.png?auto=compress,format&format=webp)
 # داکرایز کردن یک پروژه React به همراه Nginx
 
 ## محیط Development:
