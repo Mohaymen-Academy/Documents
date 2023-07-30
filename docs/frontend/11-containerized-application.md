@@ -38,12 +38,14 @@ description: How to containerized applications with docker
 ### ساختار پوشه‌بندی اپلیکیشن
  
 ```structure
-my-react-app/
-├── (...Your React app files and folders)
-├── └── nginx/
-│        └── default.conf
-├── Dockerfile.dev
-└── docker-compose.yml
+Project/
+├─ Client/
+│  ├─ (...your react app files and folders)/
+│  ├─ Dockerfile.dev
+├─ nginx/
+│  ├─ default.conf
+│  ├─ Dcokerfile.dev
+docker-compose.yml
 ```
 ### ایجاد Dockerfile.dev برای react app 
 در پوشه Client فایل‌های مربوط به react قرار داده شده است. در این پوشه فایل Dockerfile.dev را ایجاد کرده و دستورات زیر را در آن قرار دهید:
