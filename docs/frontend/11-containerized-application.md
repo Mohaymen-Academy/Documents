@@ -113,7 +113,7 @@ services:
 در محل پروژه دستور `docker-compose up --build` را در ترمنیال اجرا کنید.  
 برای غیرفعال کردن کانتیر از دستور `docker-compose down` استفاده می‌کنیم.  
 برای اجرای کانتیر در پس‌زمنیه یا حالت detach mode از دستور `docker-compose up -d` استفاده می‌کنیم.  
-
+![Example Image](https://miro.medium.com/v2/resize:fit:1400/1*Ydxg0X39m3VDA9c01KFffQ.png)
 
 ## محیط Production:
 برای dockerize کردن یک اپلیکیشن React به همراه Nginx در محیط Production، می‌توان مراحل زیر را دنبال کرد
