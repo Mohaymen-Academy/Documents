@@ -3,7 +3,7 @@ title: Containerized Applications
 description: How to containerized applications with docker
 ---
 
-## مقدمه
+# مقدمه
 
 زمانی که با تیم های بزرگ شروع به کار میکنیم زیر ساخت انها بر اساس [docker compose ](https://docs.docker.com/compose/)- [docker swarm](https://docs.docker.com/engine/swarm/) - [kubernetes](https://kubernetes.io/) پیاده سازی شده است.
 در نتیجه ما به عنوان برنامه نویس فرانت باید بتوانیم فایل های پروژه خود را در درون این نوع زیر ساخت متنشر کنیم.
@@ -23,7 +23,7 @@ description: How to containerized applications with docker
 
 
 
-### تعریف
+## تعریف
 
 برای آشنایی بیشتر با این مفهوم می‌توانید از لینک‌های زیر استفاده کنید:
 
@@ -31,13 +31,13 @@ description: How to containerized applications with docker
 -   [Medium - How to Dockerized react app](https://medium.com/swlh/dockerizing-your-reactjs-application-c59109e97861)
 
 ---
-## داکرایز کردن یک پروژه React به همراه Nginx
+# داکرایز کردن یک پروژه React به همراه Nginx
 برای dockerize کردن یک اپلیکیشن React به همراه Nginx، می‌توان مراحل زیر را دنبال کرد:
 
-### ساخت اپلیکیشن React:
+## ساخت اپلیکیشن React:
  می‌توان از`Vite` یا هر ابزار دیگری برای ساخت یک اپلیکیشن React استفاده کرد. در این آموزش از ابزار vite برای ساخت اپلیکیشن استفاده شده است. اما ابزار‌های دیگر نیز تفاوت خاصی ندارند. ممکن است پوشه‌ای که فایل‌‌های build شده در آن قرار می‌گیرند در ابزار‌های دیگر به جای dist به نام build ایجاد شوند. در این صورت باید dockerfile براساس این نکته اصلاح شوند.
  
-### کانفیگ Nginx:
+## کانفیگ Nginx:
 نمونه کانفیگ nginx در ادامه ارائه گردیده است:
 ```deafult.conf
 server {
@@ -52,7 +52,7 @@ server {
 در فایل کانفیگ بالا محل قرارگیری فایل‌های استاتیک وب‌سایت مشخص شده است و هر ریکوئست یه پورت 80 در کانتینر زده شود، nginx به این محل هدایت خواهد شد.
 فایل کانفیگ در پوشه nginx به نام default.conf قرار داده می‌شود.
 
-### ایجاد Dockerfile:
+## ایجاد Dockerfile:
 در Dockerfile مراحل زیر را دنیال می‌کنیم:  
   ##### 1- از بیس ایمیج (Base Image) node برای Containerize کردن اپلیکیشن React استفاده کنید. همچنین برای این کانتیر باید نام مشخصی تعریف کنیم که در مراحل         بعدی از این نام برای کپی کردن فایل‌‌های مورد نیاز استفاده خواهد شد.  
   ##### 2- ورک دایرکتوری را در محل دلخواهی از کانتینر تغریف می‌کنیم. بهتر است در فولدری جدا از فایل‌‌های حیاتی کانتینر تعریف شود.   
