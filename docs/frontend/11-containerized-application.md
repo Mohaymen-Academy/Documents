@@ -113,10 +113,10 @@ services:
 در محل پروژه دستور `docker-compose up --build` را در ترمنیال اجرا کنید.  
 برای غیرفعال کردن کانتیر از دستور `docker-compose down` استفاده می‌کنیم.  
 برای اجرای کانتیر در پس‌زمنیه یا حالت detach mode از دستور `docker-compose up -d` استفاده می‌کنیم.  
-![Example Image](https://miro.medium.com/v2/resize:fit:1400/1*Ydxg0X39m3VDA9c01KFffQ.png)
 
 ## محیط Production:
 برای dockerize کردن یک اپلیکیشن React به همراه Nginx در محیط Production، می‌توان مراحل زیر را دنبال کرد
+![Example Image](https://miro.medium.com/v2/resize:fit:1400/1*Ydxg0X39m3VDA9c01KFffQ.png)
 
 ### ساخت اپلیکیشن React:
  می‌توان از`Vite` یا هر ابزار دیگری برای ساخت یک اپلیکیشن React استفاده کرد. در این آموزش از ابزار vite برای ساخت اپلیکیشن استفاده شده است. اما ابزار‌های دیگر نیز تفاوت خاصی ندارند. ممکن است پوشه‌ای که فایل‌‌های build شده در آن قرار می‌گیرند در ابزار‌های دیگر به جای dist به نام build ایجاد شوند. در این صورت باید dockerfile براساس این نکته اصلاح شوند.
