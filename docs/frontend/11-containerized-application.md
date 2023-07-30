@@ -37,22 +37,25 @@ description: How to containerized applications with docker
 برای dockerize کردن یک اپلیکیشن React به همراه Nginx در محیط Development، می‌توان مراحل زیر را دنبال کرد:
 ### ساختار پوشه‌بندی اپلیکیشن
  
- 
- ```my-react-app/
+```structure
+my-react-app/
 ├── (...Your React app files and folders)
 ├── └── nginx/
 │        └── default.conf
 ├── Dockerfile.dev
-└── docker-compose.yml```
+└── docker-compose.yml
+```
 ### ایجاد Dockerfile.dev برای react app 
 در پوشه Client فایل‌های مربوط به react قرار داده شده است. در این پوشه فایل Dockerfile.dev را ایجاد کرده و دستورات زیر را در آن قرار دهید:
-```Dockerfile.dev
-FROM node:14.14.0-alpine
+```structure
+Dockerfile.dev
+FROM node:18-alpine
 WORKDIR /app
 COPY ./package.json ./
 RUN npm i
 COPY . .
-CMD ["npm", "run", "dev"]```
+CMD ["npm", "run", "dev"]
+```
 
 
 ## محیط Production:
