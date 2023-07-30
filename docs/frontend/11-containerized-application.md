@@ -60,7 +60,7 @@ CMD ["npm", "run", "dev"]
 ### ایجاد فایل default.conf برای nginx:
 ```deafult.conf
 upstream client{
-  server client:5173; # this defined in docker-compose file
+  server client:5173; #this defined in docker-compose file
 }
 server{
   listen 80;
@@ -94,7 +94,7 @@ services:
   nginx:
      depends_on:
        - client
-     restart: always # if nginx down will always back up
+     restart: always #if nginx down will always back up
      build:
        context: ./nginx
        dockerfile: Dockerfile.dev
