@@ -92,7 +92,7 @@ services:
     volumes:
       - /app/node_modules
       - ./client:/app
-   nginx:
+  nginx:
      depends_on:
        - client
      restart: always
