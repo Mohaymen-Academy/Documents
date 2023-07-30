@@ -60,7 +60,7 @@ CMD ["npm", "run", "dev"]
 ### ایجاد فایل default.conf برای nginx:
 ```deafult.conf
 upstream client{
-  server client:5173;
+  server client:5173; # this defined in docker-compose file
 }
 server{
   listen 80;
@@ -77,16 +77,13 @@ server{
 در پوشه nginx فایل Dockerfile.dev را ایجاد کرده و دستورات زیر را در آن قرار دهید:
 ```Dockerfile.dev
 FROM nginx
-COPY ./deafult.conf /etc/nginx/conf.d/deafult.conf
-RUN npm i
-COPY . . 
-CMD ["npm", "run", "dev"]
+COPY ./default.conf /etc/nginx/conf.d/default.conf
 ```
 ### ایجاد فایل docker-compose.yml:
 ```docker-compose.yml
 version: "3.8"
 services:
-  client:
+  client: #this name will be used in nginx config as domain name
     stdin_open: true
     build:
       context: .
@@ -97,7 +94,7 @@ services:
   nginx:
      depends_on:
        - client
-     restart: always
+     restart: always # if nginx down will always back up
      build:
        context: ./nginx
        dockerfile: Dockerfile.dev
