@@ -34,6 +34,26 @@ description: How to containerized applications with docker
 # داکرایز کردن یک پروژه React به همراه Nginx
 
 ## محیط Development:
+برای dockerize کردن یک اپلیکیشن React به همراه Nginx در محیط Development، می‌توان مراحل زیر را دنبال کرد:
+### ساختار پوشه‌بندی اپلیکیشن
+ 
+ 
+ my-react-app/
+├── (...Your React app files and folders)
+├── └── nginx/
+│        └── default.conf
+├── Dockerfile.dev
+└── docker-compose.yml
+### ایجاد Dockerfile.dev برای react app 
+در پوشه Client فایل‌های مربوط به react قرار داده شده است. در این پوشه فایل Dockerfile.dev را ایجاد کرده و دستورات زیر را در آن قرار دهید:
+```Dockerfile.dev
+FROM node:14.14.0-alpine
+WORKDIR /app
+COPY ./package.json ./
+RUN npm i
+COPY . .
+CMD ["npm", "run", "dev"]```
+
 
 ## محیط Production:
 برای dockerize کردن یک اپلیکیشن React به همراه Nginx در محیط Production، می‌توان مراحل زیر را دنبال کرد:
@@ -56,7 +76,7 @@ server {
 در فایل کانفیگ بالا محل قرارگیری فایل‌های استاتیک وب‌سایت مشخص شده است و هر ریکوئست یه پورت 80 در کانتینر زده شود، nginx به این محل هدایت خواهد شد.
 فایل کانفیگ در پوشه nginx به نام default.conf قرار داده می‌شود.
 
-### ایجاد Dockerfile:
+### ایجاد Dockerfile
 در Dockerfile مراحل زیر را دنیال می‌کنیم:  
   ##### 1- از بیس ایمیج (Base Image) node برای Containerize کردن اپلیکیشن React استفاده کنید. همچنین برای این کانتیر باید نام مشخصی تعریف کنیم که در مراحل         بعدی از این نام برای کپی کردن فایل‌‌های مورد نیاز استفاده خواهد شد.  
   ##### 2- ورک دایرکتوری را در محل دلخواهی از کانتینر تغریف می‌کنیم. بهتر است در فولدری جدا از فایل‌‌های حیاتی کانتینر تعریف شود.   
@@ -98,7 +118,7 @@ services:
 توجه کنید در فایل داکر کوپوز indent ها مهم هستند.
 در دستورات بالا محل قرارگیری dockerfile با دستور context و نام آن مشخض و پورت 80 کامیپوتر به پورت 80 کانتینر map شده است.  
 
-### ساخت و اجرای کانتیر 
+### ساخت و اجرای کانتینر 
 در محل پروژه دستور `docker-compose up --build` را در ترمنیال اجرا کنید.  
 برای غیرفعال کردن کانتیر از دستور `docker-compose down` استفاده می‌کنیم.  
 برای اجرای کانتیر در پس‌زمنیه یا حالت detach mode از دستور `docker-compose up -d` استفاده می‌کنیم.  
