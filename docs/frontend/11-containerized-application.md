@@ -35,24 +35,21 @@ description: How to containerized applications with docker
 برای dockerize کردن یک اپلیکیشن React به همراه Nginx، می‌توان مراحل زیر را دنبال کرد:
 
 ### ساخت اپلیکیشن React:
- می‌توان از`Vite` یا هر ابزار دیگری برای ساخت یک اپلیکیشن React استفاده کرد. در این آموزش از ابزار vite برای ساخت اپلیکیشن استفاده شده است. اما ابزار‌های دیگر نیز تفاوت خاصی ندارند.
+ می‌توان از`Vite` یا هر ابزار دیگری برای ساخت یک اپلیکیشن React استفاده کرد. در این آموزش از ابزار vite برای ساخت اپلیکیشن استفاده شده است. اما ابزار‌های دیگر نیز تفاوت خاصی ندارند. ممکن است پوشه‌ای که فایل‌‌های build شده در آن قرار می‌گیرند در ابزار‌های دیگر به جای dist به نام build ایجاد شوند. در این صورت باید dockerfile براساس این نکته اصلاح شوند.
  
 ### کانفیگ Nginx:
 نمونه کانفیگ nginx در ادامه ارائه گردیده است:
-```Dockerfile
-upstream client{
-  server client:5173;
-}
+```deafult.conf
 server {
-  listen 80; #define a port (80 if not presented)
+  listen 80;
   location / {
-    proxy_pass http://localhost:5173;
-    proxy_http_version 1.1;
-    proxy_set_header Upgrade $http_upgrade;
-    proxy_set_header Connection "Upgrade";
+    root /usr/share/nginx/html;
+    index index.html index.htm;
+    try_files $uri $uri/ /index.html =404;
   }
 }
 ```
+در فایل کانفیگ بالا محل ثرارگیری فایل‌های استاتیک وب‌سایت را مشخص کردیم و هر زمان کاربر به پورت ۸۰ در کانتینر ریکوئست بزند، nginx به این محل هدایت خواهد شد.
 فایل کانفیگ در پوشه nginx به نام default.conf قرار داده می‌شود.
 
 ### ایجاد Dockerfile:
@@ -78,16 +75,26 @@ RUN npm install
 RUN npm run build
 
 FROM nginx:alpine
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 ```
+### ایجاد فایل docker-compose.yml:
+```docker-compose.yml
+version: "3"
+services:
+ nginx-react:
+ container_name: ngixreactapp
+ build:
+  context: .
+  dockerfile: Dockerfile
+ ports:
+  - 80:80
+```
+توجه کنید در فایل داکر کوپوز indent ها مهم هستند.
+در دستورات بالا محل قرارگیری dockerfile با دستور context و نام آن مشخض و پورت 80 کامیپوتر به پورت 80 کانتینر map شده است.  
 
-## ساخت Image
-
-
-
-
-## پروژه
-
-ساخت داکر فایل یک پروژه ریکت و اجرای ان روی کانتینر 
+## ساخت و اجرای کانتیر 
+در محل پروژه دستور `docker-compose up --build` را در ترمنیال اجرا کنید.  
+برای غیرفعال کردن کانتیر از دستور `docker-compose down` استفاده می‌کنیم.  
+برای اجرای کانتیر در پس‌زمنیه یا حالت detach mode از دستور `docker-compose -d up` استفاده می‌کنیم.  
