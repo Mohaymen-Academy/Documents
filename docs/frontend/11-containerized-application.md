@@ -48,7 +48,7 @@ Project/
 ```
 ### ایجاد Dockerfile.dev برای react app 
 در پوشه Client فایل‌های مربوط به react قرار داده شده است. در این پوشه فایل Dockerfile.dev را ایجاد کرده و دستورات زیر را در آن قرار دهید:
-```Dockerfile.dev
+```text
 FROM node:18-alpine
 WORKDIR /app
 COPY ./package.json ./
@@ -57,7 +57,7 @@ COPY . .
 CMD ["npm", "run", "dev"]
 ```
 ### ایجاد فایل default.conf برای nginx
-```deafult.conf
+```text
 upstream client{
   server client:5173; #this defined in docker-compose file
 }
@@ -74,12 +74,12 @@ server{
 
 ### ایجاد Dockerfile.dev برای nginx 
 در پوشه nginx فایل Dockerfile.dev را ایجاد کرده و دستورات زیر را در آن قرار دهید:
-```Dockerfile.dev
+```text
 FROM nginx
 COPY ./default.conf /etc/nginx/conf.d/default.conf
 ```
 ### ایجاد فایل docker-compose.yml
-```docker-compose.yml
+```yaml
 version: "3.8"
 services:
   client: #this name will be used in nginx config as domain name
@@ -148,7 +148,7 @@ server {
   در زیر Dockerfile مربوط به مراحل بالا ارائه شده است:
   
 
-```Dockerfile
+```text
 FROM node:latest as build
 WORKDIR /app
 COPY . .
@@ -161,7 +161,7 @@ COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 ```
 ### ایجاد فایل docker-compose.yml:
-```docker-compose.yml
+```yaml
 version: "3"
 services:
   nginx-react:
