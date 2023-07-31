@@ -1,0 +1,16 @@
+---
+title: Redux
+description: React Redux
+---
+
+![](../images/redux0.png)
+
+## مقدمه
+
+![](../images/redux1.jpg)
+
+![](../images/redux2.gif)
+
+## Actions
+
+در ریداکس ما به جای استفاده مستقیم از state ها و تغییر آنها از سیستمی
