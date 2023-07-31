@@ -18,9 +18,6 @@ description: How to containerized applications with docker
 3.اجرا image و تبدیل ان به container
 
 در نهایت container ما همان ماشین مجازی است که توسط داکر فایل ما کانفیگ و در درون Ram اجرا شده و اماده سرویس دهی میباشد.
-به این container ها در زیر ساخت kubernetes با نام pod یاد میکنند
-
-
 
 ## تعریف
 
