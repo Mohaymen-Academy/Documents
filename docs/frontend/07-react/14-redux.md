@@ -277,3 +277,10 @@ export const CounterComponent = () => {
 :::tip مطالعه
 [داک useSelector](https://react-redux.js.org/api/hooks#useselector)
 :::
+
+
+
+---
+## پروژه
+
+استفاده از Redux  در پروژه ویترین و صفحه ساز
