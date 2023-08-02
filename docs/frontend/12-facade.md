@@ -1,6 +1,6 @@
 ---
 title: Facade Design Pattern
-description: How to containerized applications with docker
+description: Facade Design Pattern
 ---
 
 ![](./images/facade.png)
