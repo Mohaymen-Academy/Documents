@@ -1,4 +1,12 @@
+---
+title: Advanced Topics on PWAs
+description: App Shell Architecture and manifest.json
+---
+
+![app shell](../images/app-shell-banner.jpeg)
+
 ## مقدمه
+در این بخش به بررسی معماری App Shell می پردازیم که در PWA ها به لود سریع تر برنامه و در نتیجه به بهبود تجربه کاربری می انجامد. همچنین برخی از مقادیر مهم در یک فایل manifest.json را بررسی می کنیم که دربرگیرنده تنظیمات PWA است.
 
 ## App Shell Architecture
 
