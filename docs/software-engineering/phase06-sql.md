@@ -371,7 +371,7 @@ GROUP BY ParticipantStudentNumber;
 * Delete account (delete)
 * Change Bio (update)
 * Send message (insert)
-* Edit message (insert)
+* Edit message (update)
 * Delete message (delete)
 
 * Get all messages of a user
