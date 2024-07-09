@@ -3,7 +3,7 @@ title: CI/CD
 description: 'Just push it!'
 ---
 
-![cicd](../images/phase05-ci-cd.jpg)
+![cicd](images/phase05-ci-cd.jpg)
 
 ## مقدمه
 
@@ -28,7 +28,7 @@ description: 'Just push it!'
 
 ## badges
 
-![badges](../images/phase05-badges.png)
+![badges](images/phase05-badges.png)
 
 احتمالا تا به حال در گیت‌هاب با ریپو‌هایی مواجه شده‌اید که دارای اطلاعات جالبی در ابتدای فایل readme خود بوده‌اند. به این باکس‌های کوچک، به اصطلاح badge گفته می‌شود.
 شما نیز با کمک [این لینک](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)، به پروژه خود یک badge اضافه کنید. 

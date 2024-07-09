@@ -10,7 +10,7 @@ description: 'a brief look into software testing ...'
 
 خوب است اما نیم‌نگاهی به مسئله تست به طور کلی داشته باشیم. در تصویر زیر می‌توانید سطوج مختلف تست را مشاهده کنید:
 
-![](../images/phase04-level-of-testing.png)
+![](images/phase04-level-of-testing.png)
 
 ## مفهوم Unit Test و اهمیت آن
 
@@ -23,7 +23,7 @@ description: 'a brief look into software testing ...'
 -   [Time difference between developing with unit tests vs no tests](https://softwareengineering.stackexchange.com/questions/322256/time-difference-between-developing-with-unit-tests-vs-no-tests)
 
 
-![](../images/phase04-Top-Reasons-To-Unit-Test.png)
+![](images/phase04-Top-Reasons-To-Unit-Test.png)
 
 ## مفهوم Code Coverage در Unit Testing و اهمیت آن
 
